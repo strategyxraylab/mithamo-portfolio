@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charles Mithamo | Portfolio</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #0b0b0f;
+  color: white;
+  line-height: 1.7;
+}
+
+header {
+  padding: 22px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #14141c;
+}
+
+.logo {
+  color: #00e5ff;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.hero {
+  min-height: 80vh;
+  padding: 90px 8%;
+  display: flex;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.hero h1 span {
+  color: #00e5ff;
+}
+
+.hero p {
+  color: #bbb;
+  max-width: 550px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 25px;
+  background: #00e5ff;
+  color: #08080c;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+section {
+  padding: 65px 8%;
+}
+
+h2 {
+  color: #00e5ff;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #171720;
+  padding: 25px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #14141c;
+  color: #aaa;
+}
+
+@media(max-width:600px) {
+  header {
+    flex-direction: column;
+    gap: 12px;
+  }
+  nav a {
+    margin: 5px;
+  }
+  .hero h1 {
+    font-size: 34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">CHARLES MITHAMO</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <div>
+    <h1>Hello, I'm <span>Charles Mithamo</span></h1>
+    <p>
+      Graphics Designer, Web Design Learner and Digital Creator.
+      I enjoy creating beautiful designs and modern websites.
+    </p>
+    <a href="#contact" class="btn">Contact Me</a>
+  </div>
+</div>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      My name is Charles Mithamo. I am passionate about
+      graphic design, website development, creativity and
+      digital technology. I am constantly learning new skills
+      and developing my creative projects.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>My Skills</h2>
+  <div class="card">Graphic Design</div>
+  <div class="card">Web Design</div>
+  <div class="card">HTML & CSS</div>
+  <div class="card">Digital Creativity</div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <div class="card">
+    <p>Let's work together on creative projects.</p>
+    <a class="btn" href="mailto:your@email.com">Email Me</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Charles Mithamo. All Rights Reserved.
+</footer>
+
+</body>
+</html>
