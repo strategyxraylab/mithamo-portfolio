@@ -4,71 +4,401 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Charles Mithamo | Creative Portfolio</title>
+<meta name="theme-color" content="#090b09">
 <meta name="description" content="Charles Mithamo - Graphic Designer, Web Designer and Digital Creator.">
+<title>Charles Mithamo | Creative Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
-body{background:#090b10;color:#fff;font-family:'Outfit',sans-serif}
-:root{--accent:#b8ff4d;--muted:#a4a8b3;--panel:#141821}
-a{text-decoration:none;color:inherit}
-header{height:78px;padding:0 8%;display:flex;align-items:center;justify-content:space-between;background:#090b10;position:sticky;top:0;z-index:10;border-bottom:1px solid #202530}
-.logo{font-size:21px;font-weight:800}
-.logo span{color:var(--accent)}
-nav{display:flex;gap:25px}
-nav a{font-size:13px;color:#ddd}
-nav a:hover{color:var(--accent)}
-.hero{padding:90px 8%;min-height:600px;display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center}
-.tag{color:var(--accent);font-size:13px;letter-spacing:3px;text-transform:uppercase}
-h1{font-size:clamp(43px,7vw,78px);line-height:1.05;margin:22px 0}
-h1 span{color:var(--accent)}
-.hero p{color:var(--muted);max-width:520px;line-height:1.9}
-.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
-.btn{padding:14px 23px;background:var(--accent);color:#10140a;border-radius:6px;font-weight:700;display:inline-block}
-.btn.outline{background:transparent;color:white;border:1px solid #555}
-.hero-img{position:relative}
-.hero-img img{width:100%;height:420px;object-fit:cover;border-radius:18px;filter:saturate(.85)}
-.image-label{position:absolute;bottom:20px;left:-20px;background:var(--accent);color:#10140a;padding:15px 22px;border-radius:8px;font-weight:700}
-section{padding:85px 8%}
-.section-head{margin-bottom:38px}
-.section-head h2{font-size:38px;margin:12px 0}
-.section-head p{color:var(--muted)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
-.about-card,.skill-card{background:var(--panel);padding:30px;border:1px solid #252c38;border-radius:13px}
-.about-card p{color:var(--muted);line-height:2}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
-.stat{background:#1d2430;padding:18px;border-radius:8px}
-.stat strong{display:block;color:var(--accent);font-size:25px}
-.stat small{color:var(--muted)}
-.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
-.skill-card{font-weight:600}
-.skill-card span{font-size:25px;display:block;margin-bottom:15px}
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
-.project{background:var(--panel);border-radius:13px;overflow:hidden;border:1px solid #252c38}
-.project img{width:100%;height:250px;object-fit:cover;display:block;transition:.4s}
-.project:hover img{transform:scale(1.04)}
-.project-info{padding:22px}
-.project-info h3{margin-bottom:8px}
-.project-info p{color:var(--muted);font-size:14px;line-height:1.7}
-.contact{background:#151c22;border-radius:20px;text-align:center;padding:65px 25px}
-.contact h2{font-size:40px;margin:15px}
-.contact p{color:var(--muted);margin-bottom:25px}
-footer{text-align:center;padding:30px;color:#8d929d;border-top:1px solid #252c38;font-size:13px}
-@media(max-width:750px){
-header{padding:0 5%;height:auto;min-height:75px;flex-direction:column;gap:12px;padding-top:15px;padding-bottom:15px}
-nav{gap:14px;flex-wrap:wrap;justify-content:center}
-nav a{font-size:12px}
-.hero{grid-template-columns:1fr;padding:65px 6%;gap:35px}
-.hero-img img{height:330px}
-.image-label{left:5px}
-section{padding:65px 6%}
-.about-grid{grid-template-columns:1fr}
-.skills{grid-template-columns:repeat(2,1fr)}
-.projects{grid-template-columns:1fr}
-.stats{grid-template-columns:repeat(3,1fr)}
-.contact h2{font-size:30px}
+:root {
+  --bg:#090b09;
+  --panel:#121712;
+  --panel2:#192019;
+  --green:#c5ff62;
+  --white:#f4f6f0;
+  --muted:#a1aa9d;
+  --border:#293228;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+a {color:inherit;text-decoration:none}
+button,input,textarea,select {font:inherit}
+img {max-width:100%;display:block}
+.container {width:88%;max-width:1150px;margin:auto}
+.green {color:var(--green)}
+.eyebrow {
+  color:var(--green);
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+h1,h2,h3,.logo {font-family:'Space Grotesk',sans-serif}
+h2 {font-size:clamp(30px,5vw,48px);line-height:1.15}
+p {color:var(--muted)}
+section {padding:95px 0}
+.section-heading {margin-bottom:38px}
+.section-heading h2 {margin:12px 0}
+.section-heading p {max-width:600px}
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:14px 23px;
+  background:var(--green);
+  color:#10160b;
+  border:1px solid var(--green);
+  border-radius:6px;
+  font-weight:700;
+  transition:.3s;
+  cursor:pointer;
+}
+.btn:hover {transform:translateY(-4px);background:#d8ff91}
+.btn.secondary {
+  background:transparent;
+  border-color:#46513f;
+  color:white;
+}
+.btn.secondary:hover {border-color:var(--green);color:var(--green)}
+header {
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(9,11,9,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav {
+  min-height:76px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.logo {font-size:20px;font-weight:700;letter-spacing:-1px}
+.logo span {color:var(--green)}
+.nav-links {display:flex;gap:24px;align-items:center}
+.nav-links a {font-size:13px;color:#c2c9bd}
+.nav-links a:hover {color:var(--green)}
+.menu-btn {
+  display:none;
+  background:none;
+  color:white;
+  border:1px solid var(--border);
+  border-radius:5px;
+  padding:7px 12px;
+  font-size:20px;
+}
+.hero {
+  min-height:660px;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:65px;
+  align-items:center;
+  padding-top:75px;
+  padding-bottom:85px;
+}
+.hero h1 {
+  font-size:clamp(46px,7vw,82px);
+  line-height:1.02;
+  letter-spacing:-4px;
+  margin:20px 0;
+}
+.hero h1 span {color:var(--green)}
+.hero-copy {max-width:570px}
+.hero-copy p {font-size:16px;line-height:1.9}
+.hero-buttons {display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}
+.hero-photo {
+  position:relative;
+  padding:12px;
+  border:1px solid #46513f;
+  border-radius:18px;
+  background:var(--panel);
+}
+.hero-photo img {
+  width:100%;
+  height:450px;
+  object-fit:cover;
+  object-position:center;
+  border-radius:12px;
+}
+.photo-note {
+  position:absolute;
+  bottom:27px;
+  left:-25px;
+  background:var(--green);
+  color:#10160b;
+  padding:12px 19px;
+  font-weight:700;
+  border-radius:5px;
+  font-size:13px;
+}
+.scroll-note {margin-top:55px;font-size:11px;letter-spacing:2px;color:#768171}
+.marquee {
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:20px 0;
+  overflow:hidden;
+  white-space:nowrap;
+  color:var(--green);
+  font-family:'Space Grotesk',sans-serif;
+  letter-spacing:3px;
+}
+.marquee span {display:inline-block;padding-left:30px}
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+.panel {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:30px;
+}
+.panel p {line-height:1.9}
+.stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+.stat {
+  padding:17px 10px;
+  background:var(--panel2);
+  border-radius:8px;
+  text-align:center;
+}
+.stat strong {display:block;color:var(--green);font-size:24px}
+.stat small {color:var(--muted);font-size:11px}
+.skills {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+.skill {
+  padding:24px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  border-radius:10px;
+  transition:.3s;
+}
+.skill:hover,.service:hover {transform:translateY(-6px);border-color:var(--green)}
+.skill-icon {font-size:27px;margin-bottom:12px}
+.skill h3 {font-size:16px}
+.skill p {font-size:12px;margin-top:7px}
+.projects {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+.project {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+}
+.project-image {
+  height:270px;
+  overflow:hidden;
+  cursor:zoom-in;
+  background:var(--panel2);
+}
+.project-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .5s;
+}
+.project:hover .project-image img {transform:scale(1.06)}
+.project-info {padding:22px}
+.project-info h3 {font-size:20px}
+.project-info p {font-size:13px;margin-top:6px}
+.project-type {color:var(--green);font-size:11px;letter-spacing:2px}
+.services {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.service {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:28px;
+  transition:.3s;
+}
+.service-icon {font-size:30px;margin-bottom:15px}
+.service h3 {font-size:20px;margin-bottom:10px}
+.service p {font-size:13px;min-height:65px}
+.price {color:var(--green);font-size:18px;font-weight:700;margin:20px 0}
+.service a {font-size:13px;color:var(--green)}
+.cv-box {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  background:linear-gradient(120deg,#1a2618,#111811);
+  border:1px solid #45543b;
+  border-radius:14px;
+  padding:35px;
+}
+.cv-box h3 {font-size:25px;margin:8px 0}
+.testimonials {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+.review {
+  padding:25px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+.stars {color:var(--green);letter-spacing:3px}
+.review p {font-size:14px;margin:15px 0}
+.review strong {font-size:13px}
+.review small {display:block;color:var(--muted)}
+.contact-grid {
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:35px;
+}
+.contact-details {display:grid;gap:15px;margin-top:25px}
+.contact-item {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:18px;
+}
+.contact-item strong {display:block;color:var(--green);font-size:13px}
+.contact-item span {font-size:14px}
+form {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:28px;
+}
+form label {display:block;font-size:13px;margin:14px 0 6px}
+form input,form textarea,form select {
+  width:100%;
+  background:#0b100b;
+  color:white;
+  border:1px solid #344032;
+  border-radius:6px;
+  padding:13px;
+  outline:none;
+}
+form input:focus,form textarea:focus,form select:focus {border-color:var(--green)}
+form textarea {min-height:125px;resize:vertical}
+form button {margin-top:20px;width:100%}
+.socials {display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.socials a {
+  padding:10px 15px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  font-size:13px;
+}
+.socials a:hover {color:var(--green);border-color:var(--green)}
+footer {
+  padding:30px 0;
+  border-top:1px solid var(--border);
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+}
+.float-wa {
+  position:fixed;
+  bottom:22px;
+  right:20px;
+  z-index:30;
+  width:57px;
+  height:57px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#25d366;
+  color:#061008;
+  font-size:25px;
+  font-weight:bold;
+  box-shadow:0 5px 25px #0009;
+}
+.viewer {
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.94);
+  z-index:100;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+}
+.viewer.open {display:flex}
+.viewer img {max-width:95%;max-height:85vh;object-fit:contain}
+.viewer button {
+  position:absolute;
+  top:20px;
+  right:25px;
+  background:none;
+  border:0;
+  color:white;
+  font-size:38px;
+  cursor:pointer;
+}
+.reveal {
+  opacity:0;
+  transform:translateY(25px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible {opacity:1;transform:translateY(0)}
+@media(max-width:800px) {
+  .hero {grid-template-columns:1fr;gap:40px;padding-top:60px}
+  .hero-photo {max-width:480px;margin:auto}
+  .hero-photo img {height:390px}
+  .skills {grid-template-columns:repeat(2,1fr)}
+  .services {grid-template-columns:1fr 1fr}
+  .testimonials {grid-template-columns:1fr}
+  .contact-grid {grid-template-columns:1fr}
+}
+@media(max-width:600px) {
+  .container {width:90%}
+  section {padding:70px 0}
+  .nav {min-height:70px;flex-wrap:wrap}
+  .menu-btn {display:block}
+  .nav-links {
+    display:none;
+    width:100%;
+    padding:5px 0 18px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+  }
+  .nav-links.show {display:flex}
+  .hero h1 {letter-spacing:-2px}
+  .hero-photo img {height:340px}
+  .photo-note {left:5px}
+  .about-grid,.projects,.services {grid-template-columns:1fr}
+  .skills {grid-template-columns:1fr 1fr}
+  .cv-box {flex-direction:column;align-items:flex-start}
+  .stats {grid-template-columns:repeat(3,1fr)}
+  .panel,form {padding:22px}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    scroll-behavior:auto!important;
+    transition:none!important;
+    animation:none!important;
+  }
 }
 </style>
 </head>
@@ -76,143 +406,344 @@ section{padding:65px 6%}
 <body>
 
 <header>
-  <div class="logo">CHARLES<span>.</span>MITHAMO</div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#work">My Work</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="container nav">
+    <a class="logo" href="#home">CHARLES<span>.</span>MITHAMO</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Portfolio</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <main>
-<div class="hero" id="home">
-  <div>
-    <div class="tag">Welcome to my creative world</div>
-    <h1>Turning Ideas Into <span>Visual Experiences.</span></h1>
+<div class="container hero" id="home">
+  <div class="hero-copy reveal">
+    <div class="eyebrow">Independent Creative Designer</div>
+    <h1>Ideas become <span>visual</span> experiences.</h1>
     <p>
-      I'm Charles Mithamo, a graphic designer, aspiring web designer
-      and digital creator. I create beautiful visuals and explore
-      creative digital experiences.
+      I'm Charles Mithamo — a graphic designer, web design learner
+      and digital creator. I turn creative ideas into beautiful
+      visuals and modern digital experiences.
     </p>
-    <div class="actions">
+    <div class="hero-buttons">
       <a href="#work" class="btn">Explore My Work ↗</a>
-      <a href="#contact" class="btn outline">Let's Talk</a>
+      <a href="#contact" class="btn secondary">Let's Talk</a>
     </div>
+    <div class="scroll-note">SCROLL TO EXPLORE ↓</div>
   </div>
 
-  <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900" alt="Creative design workspace">
-    <div class="image-label">CREATIVE MINDSET ✦</div>
+  <div class="hero-photo reveal">
+    <img src="photo.jpg" alt="Portrait of Charles Mithamo"
+         onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=900'">
+    <div class="photo-note">CREATIVE MINDSET ✦</div>
   </div>
 </div>
 
-<section id="about">
-  <div class="section-head">
-    <div class="tag">A little about me</div>
-    <h2>Meet The Creative</h2>
-  </div>
+<div class="marquee">
+  <span>GRAPHIC DESIGN ✦ WEB DESIGN ✦ CREATIVE THINKING ✦ DIGITAL EXPERIENCES ✦ </span>
+</div>
 
+<section id="about">
+<div class="container">
+  <div class="section-heading reveal">
+    <div class="eyebrow">Get to know me</div>
+    <h2>More than a designer.<br><span class="green">A creative thinker.</span></h2>
+  </div>
   <div class="about-grid">
-    <div class="about-card">
+    <div class="panel reveal">
+      <h3>My Story</h3><br>
       <p>
-        My name is Charles Mithamo. I am passionate about graphic
-        design, web development, technology and creativity.
-        My goal is to transform ideas into attractive designs
-        and meaningful digital experiences.
-        I believe in learning, improving and creating something
-        better every day.
+        My name is Charles Mithamo. I'm passionate about graphic
+        design, website development, branding and digital creativity.
+        I enjoy turning ideas into meaningful visual experiences.
+        I keep learning, experimenting and improving with every project.
       </p>
     </div>
-    <div class="about-card">
-      <h3>My Creative Journey</h3>
+    <div class="panel reveal">
+      <h3>My Approach</h3><br>
       <p>
-        Exploring graphic design, learning HTML and CSS,
-        building websites and developing my digital skills.
-        Every project is an opportunity to grow.
+        Good design should look beautiful, communicate clearly
+        and solve a problem. I believe in creativity, attention
+        to detail and continuous improvement.
       </p>
       <div class="stats">
         <div class="stat"><strong>01</strong><small>Creativity</small></div>
-        <div class="stat"><strong>02</strong><small>Design</small></div>
+        <div class="stat"><strong>02</strong><small>Quality</small></div>
         <div class="stat"><strong>03</strong><small>Growth</small></div>
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <section id="skills">
-  <div class="section-head">
-    <div class="tag">What I do</div>
-    <h2>My Creative Skills</h2>
-    <p>Things I enjoy creating and developing.</p>
+<div class="container">
+  <div class="section-heading reveal">
+    <div class="eyebrow">My capabilities</div>
+    <h2>Skills & <span class="green">Expertise</span></h2>
+    <p>Creative areas I'm developing and working in.</p>
   </div>
-
   <div class="skills">
-    <div class="skill-card"><span>🎨</span>Graphic Design</div>
-    <div class="skill-card"><span>💻</span>Web Design</div>
-    <div class="skill-card"><span>🌐</span>HTML & CSS</div>
-    <div class="skill-card"><span>✨</span>Digital Creativity</div>
+    <div class="skill reveal"><div class="skill-icon">🎨</div><h3>Graphic Design</h3><p>Posters, flyers and visual concepts.</p></div>
+    <div class="skill reveal"><div class="skill-icon">💻</div><h3>Web Design</h3><p>Modern layouts and web experiences.</p></div>
+    <div class="skill reveal"><div class="skill-icon">⌨️</div><h3>HTML & CSS</h3><p>Building responsive website layouts.</p></div>
+    <div class="skill reveal"><div class="skill-icon">✦</div><h3>Digital Creativity</h3><p>Ideas, visual storytelling and content.</p></div>
   </div>
+</div>
 </section>
 
 <section id="work">
-  <div class="section-head">
-    <div class="tag">Selected visuals</div>
-    <h2>My Creative Showcase</h2>
-    <p>A glimpse into the creative world of design and technology.</p>
+<div class="container">
+  <div class="section-heading reveal">
+    <div class="eyebrow">Selected work</div>
+    <h2>The Creative <span class="green">Gallery</span></h2>
+    <p>Illustrative images for now. Replace these with your own finished projects as you build your portfolio.</p>
   </div>
 
   <div class="projects">
-    <article class="project">
-      <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=900" alt="Website design inspiration">
-      <div class="project-info">
-        <h3>Website Design</h3>
-        <p>Exploring modern website layouts, typography and digital experiences.</p>
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=1000" alt="Website design concept">
       </div>
+      <div class="project-info"><div class="project-type">WEB DESIGN</div><h3>Digital Experiences</h3><p>Modern web layout and creative presentation.</p></div>
     </article>
 
-    <article class="project">
-      <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=900" alt="Abstract graphic artwork">
-      <div class="project-info">
-        <h3>Graphic Design</h3>
-        <p>Creative visual concepts, colours and graphic compositions.</p>
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1000" alt="Abstract graphic artwork">
       </div>
+      <div class="project-info"><div class="project-type">GRAPHIC DESIGN</div><h3>Visual Experiments</h3><p>Colour, composition and creative visual ideas.</p></div>
     </article>
 
-    <article class="project">
-      <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=900" alt="Branding and design">
-      <div class="project-info">
-        <h3>Brand Identity</h3>
-        <p>Visual branding, identity concepts and creative presentation.</p>
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=1000" alt="Brand identity concept">
       </div>
+      <div class="project-info"><div class="project-type">BRANDING</div><h3>Brand Identity</h3><p>Branding inspiration and visual direction.</p></div>
     </article>
 
-    <article class="project">
-      <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=900" alt="Digital workspace">
-      <div class="project-info">
-        <h3>Digital Creativity</h3>
-        <p>Ideas, inspiration and modern digital solutions.</p>
+    <article class="project reveal">
+      <div class="project-image">
+        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1000" alt="Creative workspace">
       </div>
+      <div class="project-info"><div class="project-type">DIGITAL CREATIVE</div><h3>Creative Workspace</h3><p>Exploring ideas and digital possibilities.</p></div>
     </article>
   </div>
+</div>
+</section>
+
+<section id="services">
+<div class="container">
+  <div class="section-heading reveal">
+    <div class="eyebrow">How I can help</div>
+    <h2>Services & <span class="green">Pricing</span></h2>
+    <p>Starting prices can be adjusted to suit each project. Confirm the price before accepting a booking.</p>
+  </div>
+
+  <div class="services">
+    <div class="service reveal">
+      <div class="service-icon">🎨</div>
+      <h3>Graphic Design</h3>
+      <p>Flyers, posters, promotional graphics and social media visuals.</p>
+      <div class="price">Price on request</div>
+      <a href="#contact">Request a quote ↗</a>
+    </div>
+    <div class="service reveal">
+      <div class="service-icon">🌐</div>
+      <h3>Website Design</h3>
+      <p>Personal websites, business websites and responsive landing pages.</p>
+      <div class="price">Price on request</div>
+      <a href="#contact">Request a quote ↗</a>
+    </div>
+    <div class="service reveal">
+      <div class="service-icon">✦</div>
+      <h3>Creative Branding</h3>
+      <p>Visual identity concepts and creative brand presentation.</p>
+      <div class="price">Price on request</div>
+      <a href="#contact">Request a quote ↗</a>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="cv">
+<div class="container">
+  <div class="cv-box reveal">
+    <div>
+      <div class="eyebrow">Professional profile</div>
+      <h3>Want to know more about me?</h3>
+      <p>View or download my CV to learn about my experience and skills.</p>
+    </div>
+    <a href="cv.pdf" class="btn" download>↓ Download My CV</a>
+  </div>
+</div>
+</section>
+
+<section id="testimonials">
+<div class="container">
+  <div class="section-heading reveal">
+    <div class="eyebrow">Client feedback</div>
+    <h2>Kind <span class="green">Words</span></h2>
+    <p>Replace these sample cards with real feedback from people you've worked with. Never present sample reviews as genuine testimonials.</p>
+  </div>
+  <div class="testimonials">
+    <div class="review reveal"><div class="stars">★★★★★</div><p>Add a real client review about your design work here.</p><strong>Client name</strong><small>Graphic design client</small></div>
+    <div class="review reveal"><div class="stars">★★★★★</div><p>Add genuine feedback about a website or creative project here.</p><strong>Client name</strong><small>Website client</small></div>
+    <div class="review reveal"><div class="stars">★★★★★</div><p>Add another real review after receiving permission to share it.</p><strong>Client name</strong><small>Creative project client</small></div>
+  </div>
+</div>
 </section>
 
 <section id="contact">
-  <div class="contact">
-    <div class="tag">Have a project in mind?</div>
-    <h2>Let's Create Something Great.</h2>
-    <p>I'm always interested in creative ideas and new opportunities.</p>
-    <a href="mailto:your@email.com" class="btn">Email Me ↗</a>
+<div class="container">
+  <div class="section-heading reveal">
+    <div class="eyebrow">Let's work together</div>
+    <h2>Have a project?<br><span class="green">Let's talk.</span></h2>
   </div>
+  <div class="contact-grid">
+    <div class="reveal">
+      <p>Tell me about your idea. Send an inquiry and let's discuss how we can bring it to life.</p>
+      <div class="contact-details">
+        <div class="contact-item"><strong>EMAIL</strong><span>your@email.com</span></div>
+        <div class="contact-item"><strong>LOCATION</strong><span>Kenya</span></div>
+        <div class="contact-item"><strong>AVAILABILITY</strong><span>Open to creative opportunities</span></div>
+      </div>
+      <div class="socials">
+        <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="https://tiktok.com/" target="_blank" rel="noopener">TikTok ↗</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <form id="inquiryForm" class="reveal">
+      <h3>Send an Inquiry</h3>
+      <label for="name">Your name</label>
+      <input id="name" name="name" required placeholder="Enter your name">
+
+      <label for="email">Your email</label>
+      <input id="email" name="email" type="email" required placeholder="Enter your email">
+
+      <label for="service">Service required</label>
+      <select id="service" name="service" required>
+        <option value="">Choose a service</option>
+        <option>Graphic Design</option>
+        <option>Website Design</option>
+        <option>Creative Branding</option>
+        <option>Other Project</option>
+      </select>
+
+      <label for="message">Tell me about your project</label>
+      <textarea id="message" name="message" required placeholder="Describe your project..."></textarea>
+
+      <button type="submit" class="btn">Send via WhatsApp ↗</button>
+      <p style="font-size:11px;margin-top:12px">Your inquiry will open in WhatsApp for you to send.</p>
+    </form>
+  </div>
+</div>
 </section>
 </main>
 
 <footer>
-  © 2026 Charles Mithamo. All Rights Reserved.
-  <br><br>Designed with creativity and passion.
+  <div class="container">
+    © 2026 Charles Mithamo. Built with creativity.
+    <br><span class="green">Ideas become visual experiences.</span>
+  </div>
 </footer>
+
+<a class="float-wa" id="whatsappButton" href="#" aria-label="Chat on WhatsApp">W</a>
+
+<div class="viewer" id="imageViewer" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button id="closeViewer" aria-label="Close image viewer">×</button>
+  <img id="viewerImage" src="" alt="Expanded project image">
+</div>
+
+<script>
+// PERSONAL SETTINGS: replace these example values.
+const WHATSAPP_NUMBER = "2547XXXXXXXX";
+const EMAIL_ADDRESS = "your@email.com";
+
+// WhatsApp floating contact button
+const waLink = "https://wa.me/" + WHATSAPP_NUMBER;
+document.getElementById("whatsappButton").href =
+  waLink + "?text=" + encodeURIComponent("Hello Charles, I saw your portfolio and would like to make an inquiry.");
+
+// Inquiry form: creates a WhatsApp message
+document.getElementById("inquiryForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  if (!this.reportValidity()) return;
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const service = document.getElementById("service").value;
+  const message = document.getElementById("message").value.trim();
+
+  const text =
+    "Hello Charles Mithamo!\n\n" +
+    "Name: " + name + "\n" +
+    "Email: " + email + "\n" +
+    "Service: " + service + "\n" +
+    "Project details: " + message;
+
+  window.open(waLink + "?text=" + encodeURIComponent(text), "_blank");
+});
+
+// Mobile navigation
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function() {
+  navLinks.classList.toggle("show");
+});
+
+navLinks.querySelectorAll("a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    navLinks.classList.remove("show");
+  });
+});
+
+// Fullscreen project image viewer
+const viewer = document.getElementById("imageViewer");
+const viewerImage = document.getElementById("viewerImage");
+
+document.querySelectorAll(".project-image img").forEach(function(img) {
+  img.addEventListener("click", function() {
+    viewerImage.src = img.src;
+    viewerImage.alt = img.alt;
+    viewer.classList.add("open");
+  });
+});
+
+function closeViewer() {
+  viewer.classList.remove("open");
+  viewerImage.src = "";
+}
+document.getElementById("closeViewer").addEventListener("click", closeViewer);
+viewer.addEventListener("click", function(event) {
+  if (event.target === viewer) closeViewer();
+});
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") closeViewer();
+});
+
+// Scroll animations
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+
+document.querySelectorAll(".reveal").forEach(function(item) {
+  observer.observe(item);
+});
+</script>
 
 </body>
 </html>
-
