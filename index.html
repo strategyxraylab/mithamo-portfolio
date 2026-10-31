@@ -173,7 +173,29 @@
       align-items: center;
     }
 
-    .hero h1 {
+    .hero h1 {@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content .eyebrow,
+.hero-content h1,
+.hero-content .hero-copy,
+.hero-content .hero-buttons,
+.hero-content .hero-note {
+  animation: heroEnter 0.8s ease both;
+}
+
+.hero-content h1 { animation-delay: 0.15s; }
+.hero-content .hero-copy { animation-delay: 0.3s; }
+.hero-content .hero-buttons { animation-delay: 0.45s; }
+.hero-content .hero-note { animation-delay: 0.6s; }
       font-size: clamp(2.8rem, 7vw, 5.6rem);
       letter-spacing: -4px;
       margin: 15px 0 22px;
@@ -588,8 +610,9 @@
               I turn ideas into clean, memorable designs.
             </p>
             <div class="hero-buttons">
-              <a class="btn" href="#projects">Explore My Work ↗</a>
-              <a class="btn btn-outline" href="#contact">Let's Work Together</a>
+  <a class="btn" href="https://wa.me/254716397341?text=Hello%20Charles%2C%20I%20would%20like%20to%20hire%20you%20for%20a%20design%20or%20website%20project.">Hire Me on WhatsApp ↗</a>
+  <a class="btn btn-outline" href="#projects">Explore My Work</a>
+</div>
             </div>
             <p class="hero-note">CREATIVITY · DESIGN · DIGITAL EXPERIENCES</p>
           </div>
