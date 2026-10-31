@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional CV | Charles Mithamo</title>
+<style>
+:root {
+  --bg: #090b0a;
+  --card: #121613;
+  --accent: #b7ff45;
+  --text: #f4f5f2;
+  --muted: #a5ada5;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  line-height: 1.7;
+}
+header {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #252c27;
+}
+.logo { color: var(--accent); font-weight: bold; letter-spacing: 2px; }
+a { color: var(--accent); text-decoration: none; }
+.container { width: 86%; max-width: 950px; margin: 55px auto; }
+.hero { padding: 35px 0; border-bottom: 1px solid #303830; }
+.tag { color: var(--accent); letter-spacing: 3px; font-size: 12px; }
+h1 { font-size: clamp(38px, 8vw, 64px); line-height: 1.1; margin: 15px 0; }
+h2 { color: var(--accent); font-size: 21px; margin-bottom: 20px; }
+h3 { margin-bottom: 4px; }
+p { color: var(--muted); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  font-weight: bold;
+}
+.btn.primary { background: var(--accent); color: #10140b; }
+section { padding: 32px 0; border-bottom: 1px solid #252c27; }
+.card {
+  background: var(--card);
+  border: 1px solid #29332b;
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 15px;
+}
+.date { color: var(--accent); font-size: 13px; }
+.skills { display: flex; flex-wrap: wrap; gap: 10px; }
+.skills span {
+  background: #192119;
+  border: 1px solid #34432e;
+  color: var(--accent);
+  padding: 8px 13px;
+  border-radius: 30px;
+  font-size: 13px;
+}
+footer { text-align: center; padding: 30px; color: var(--muted); }
+@media(max-width:600px) {
+  header { padding: 18px 5%; }
+  .container { width: 90%; margin: 30px auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">CHARLES MITHAMO</div>
+  <a href="index.html">← Back to Portfolio</a>
+</header>
+
+<main class="container">
+
+<div class="hero">
+  <div class="tag">PROFESSIONAL CURRICULUM VITAE</div>
+  <h1>Charles<br><span style="color:var(--accent)">Mithamo.</span></h1>
+  <p>Creative Designer | Web Design Learner | ICT Support Professional</p>
+  <p>Kenya · 0716397341 · mithamocharles420@gmail.com</p>
+  <div class="actions">
+    <a class="btn primary" href="cv.pdf" download>Download CV PDF ↓</a>
+    <a class="btn" href="https://wa.me/254716397341">Contact Me</a>
+  </div>
+</div>
+
+<section>
+  <h2>01 — Professional Profile</h2>
+  <p>
+    I'm Charles Mithamo, a creative designer and ICT professional from
+    Kenya. I have experience in computer training, software management
+    and computer maintenance. I am also developing my skills in graphic
+    design and modern website design.
+  </p>
+  <p>
+    I enjoy helping individuals and businesses solve technology problems
+    and bring their creative ideas to life through professional digital
+    experiences.
+  </p>
+</section>
+
+<section>
+  <h2>02 — Work Experience</h2>
+
+  <div class="card">
+    <div class="date">JULY 2025 – OCTOBER 2026</div>
+    <h3>ICT Manager</h3>
+    <p>Urban Technologies</p>
+    <p>Responsibilities included software management and computer
+    maintenance.</p>
+  </div>
+
+  <div class="card">
+    <div class="date">JUNE 2024 – JUNE 2025</div>
+    <h3>Computer Packages Instructor</h3>
+    <p>Dykaan College</p>
+    <p>Instructed computer packages and guided students through
+    practical computer exercises.</p>
+  </div>
+</section>
+
+<section>
+  <h2>03 — Skills & Expertise</h2>
+  <div class="skills">
+    <span>Graphic Design</span>
+    <span>Brand Identity</span>
+    <span>Web Design</span>
+    <span>HTML</span>
+    <span>CSS</span>
+    <span>JavaScript</span>
+    <span>Microsoft Office</span>
+    <span>ICT Support</span>
+    <span>Computer Maintenance</span>
+    <span>Computer Training</span>
+  </div>
+</section>
+
+<section>
+  <h2>04 — Professional Development</h2>
+  <div class="card">
+    <h3>Graphic Design & Web Development</h3>
+    <p>
+      Continuing to develop practical skills through independent
+      learning, personal projects and hands-on practice.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>05 — Contact Information</h2>
+  <p>Email: <a href="mailto:mithamocharles420@gmail.com">mithamocharles420@gmail.com</a></p>
+  <p>Phone: <a href="tel:+254716397341">0716397341</a></p>
+  <p>Location: Kenya</p>
+  <a class="btn primary" href="https://wa.me/254716397341">Hire Me on WhatsApp</a>
+</section>
+
+</main>
+
+<footer>
+  © 2026 Charles Mithamo. All rights reserved.
+</footer>
+
+</body>
+</html>
