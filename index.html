@@ -629,7 +629,79 @@
       }
     }
 
-  </style>
+
+/* PREMIUM SERVICE PACKAGES */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.package-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 27px;
+  transition: transform .3s, border-color .3s;
+}
+.package-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+.package-featured {
+  border-color: var(--accent);
+  box-shadow: 0 12px 35px rgba(0,0,0,.2);
+}
+.package-number {
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 17px;
+}
+.package-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+.package-price {
+  color: var(--accent);
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.package-price small {
+  font-size: .8rem;
+  font-weight: 600;
+}
+.package-card p {
+  color: var(--muted);
+  font-size: .92rem;
+}
+.package-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0;
+}
+.package-card li {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: .9rem;
+}
+.package-card li::before {
+  content: "✓";
+  color: var(--accent);
+  margin-right: 10px;
+}
+.package-card .btn {
+  display: inline-block;
+  margin-top: 5px;
+}
+@media (max-width: 760px) {
+  .packages-grid { grid-template-columns: 1fr; }
+}
+
+/* END SERVICE PACKAGES */
+
+</style>
 </head>
 
 <body>
@@ -873,6 +945,58 @@
         <h3>Modern Website Design</h3>
         <p>Creative digital experiences, modern layouts and responsive web design.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="packages">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow">WORK WITH ME</div>
+      <h2>Service <span class="accent">Packages</span></h2>
+      <p>Affordable creative and digital solutions for your needs.</p>
+    </div>
+
+    <div class="packages-grid">
+      <article class="package-card reveal">
+        <div class="package-number">01 / STARTER</div>
+        <h3>Starter</h3>
+        <div class="package-price">$5 <small>USD</small></div>
+        <p>Perfect for individuals and small businesses.</p>
+        <ul>
+          <li>Logo or flyer design</li>
+          <li>Basic promotional graphics</li>
+          <li>Small creative projects</li>
+        </ul>
+        <a class="btn" href="https://wa.me/254716397341?text=Hello%20Charles%2C%20I%20want%20the%20Starter%20package%20for%20%245.">Choose Starter ↗</a>
+      </article>
+
+      <article class="package-card package-featured reveal">
+        <div class="package-number">02 / PROFESSIONAL</div>
+        <h3>Professional</h3>
+        <div class="package-price">$7 <small>USD</small></div>
+        <p>For growing businesses building their brand.</p>
+        <ul>
+          <li>Brand graphics</li>
+          <li>Promotional designs</li>
+          <li>Website design consultation</li>
+        </ul>
+        <a class="btn" href="https://wa.me/254716397341?text=Hello%20Charles%2C%20I%20want%20the%20Professional%20package%20for%20%247.">Choose Professional ↗</a>
+      </article>
+
+      <article class="package-card reveal">
+        <div class="package-number">03 / PREMIUM</div>
+        <h3>Premium</h3>
+        <div class="package-price">$13 <small>USD</small></div>
+        <p>For clients seeking a stronger digital presence.</p>
+        <ul>
+          <li>Portfolio website design</li>
+          <li>Branding and visual design</li>
+          <li>Custom project consultation</li>
+        </ul>
+        <a class="btn" href="https://wa.me/254716397341?text=Hello%20Charles%2C%20I%20want%20the%20Premium%20package%20for%20%2413.">Choose Premium ↗</a>
+      </article>
     </div>
   </div>
 </section>
