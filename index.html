@@ -522,6 +522,28 @@
       transition: opacity .7s, transform .7s;
     }
 
+
+    /* PREMIUM STAGGERED ANIMATIONS */
+    .reveal {
+      will-change: opacity, transform;
+    }
+
+    .reveal:nth-child(2) { transition-delay: .10s; }
+    .reveal:nth-child(3) { transition-delay: .20s; }
+    .reveal:nth-child(4) { transition-delay: .30s; }
+    .reveal:nth-child(5) { transition-delay: .40s; }
+    .reveal:nth-child(6) { transition-delay: .50s; }
+    .reveal:nth-child(7) { transition-delay: .60s; }
+    .reveal:nth-child(8) { transition-delay: .70s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .reveal.visible {
+        transition: none !important;
+        transform: none !important;
+      }
+    }
+
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 850px) {
