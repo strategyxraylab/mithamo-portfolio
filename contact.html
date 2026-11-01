@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact Charles Mithamo for graphic design, website development, computer training and ICT support in Kenya.">
+<title>Contact | Charles Mithamo</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#090b09;--panel:#121612;--text:#f3f5ef;--muted:#a0a89e;--accent:#b5f36b;--line:#252c25}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+a{color:inherit;text-decoration:none}
+.container{width:min(1050px,90%);margin:auto}
+.topbar{position:sticky;top:0;z-index:10;background:#090b09ed;border-bottom:1px solid var(--line)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font:700 23px 'Space Grotesk';letter-spacing:1px}.brand span,.accent{color:var(--accent)}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{font-size:13px;color:var(--muted)}
+.nav-links a:hover,.nav-links .active{color:var(--accent)}
+.menu-btn{display:none;background:none;color:var(--text);border:1px solid var(--line);padding:8px 12px;border-radius:8px;font-size:20px}
+.hero{text-align:center;padding:85px 0 45px}
+.eyebrow{color:var(--accent);font-size:12px;letter-spacing:3px;font-weight:700;margin-bottom:15px}
+h1,h2,h3{font-family:'Space Grotesk';line-height:1.2}
+h1{font-size:clamp(40px,7vw,65px);margin-bottom:16px}
+.hero p{max-width:620px;margin:auto;color:var(--muted)}
+.section{padding:35px 0 85px}
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:22px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px}
+.panel h2{font-size:25px;margin-bottom:12px}
+.panel>p{color:var(--muted);font-size:14px;margin-bottom:23px}
+.detail{padding:16px 0;border-bottom:1px solid var(--line)}
+.detail:last-child{border-bottom:0}
+.detail span{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}
+.detail a,.detail strong{font-size:14px;overflow-wrap:anywhere}
+.detail a:hover{color:var(--accent)}
+label{display:block;font-size:13px;margin:15px 0 7px}
+input,select,textarea{width:100%;padding:13px 14px;background:#090b09;color:var(--text);border:1px solid var(--line);border-radius:8px;font:14px 'DM Sans';outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+textarea{min-height:125px;resize:vertical}
+.btn{display:inline-block;background:var(--accent);color:#10150b;border:0;padding:13px 20px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;margin-top:20px}
+.form-note{font-size:12px;color:var(--muted);margin-top:12px}
+footer{border-top:1px solid var(--line);padding:25px 0;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:800px){.nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--panel);padding:22px 5%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.menu-btn{display:block}.contact-grid{grid-template-columns:1fr}.hero{padding:65px 0 35px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="container nav">
+<a class="brand" href="index.html">CHARLES<span>.</span></a>
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="services.html">Services</a>
+<a href="projects.html">Projects</a>
+<a href="cv.html">My CV</a>
+<a class="active" href="contact.html">Contact</a>
+</nav>
+<button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="container">
+<div class="eyebrow">LET'S CONNECT</div>
+<h1>Get In <span class="accent">Touch.</span></h1>
+<p>Have a project, business idea or question? I'd be happy to hear from you. Let's discuss how we can work together.</p>
+</div>
+</section>
+
+<section class="section">
+<div class="container contact-grid">
+<div class="panel">
+<h2>Contact <span class="accent">Details</span></h2>
+<p>Choose your preferred way to reach me.</p>
+<div class="detail"><span>PHONE / WHATSAPP</span><a href="https://wa.me/254716397341">+254 716 397 341</a></div>
+<div class="detail"><span>EMAIL ADDRESS</span><a href="mailto:mithamocharles420@gmail.com">mithamocharles420@gmail.com</a></div>
+<div class="detail"><span>LOCATION</span><strong>Kenya</strong></div>
+<div class="detail"><span>AVAILABILITY</span><strong>Open to suitable creative projects</strong></div>
+</div>
+
+<div class="panel">
+<h2>Send Me a <span class="accent">Message</span></h2>
+<p>Complete the form. WhatsApp will open with your message ready to send.</p>
+<form id="contactForm">
+<label for="visitorName">Your name</label>
+<input id="visitorName" name="name" type="text" placeholder="Enter your name" required>
+<label for="visitorEmail">Your email</label>
+<input id="visitorEmail" name="email" type="email" placeholder="Enter your email address" required>
+<label for="service">What do you need?</label>
+<select id="service" name="service" required>
+<option value="">Select a service</option>
+<option>Logo Design</option>
+<option>Flyers & Posters</option>
+<option>Brand Graphics</option>
+<option>Website Design</option>
+<option>Computer Maintenance</option>
+<option>Computer Training</option>
+<option>Portfolio Website</option>
+<option>Custom Project</option>
+<option>Other enquiry</option>
+</select>
+<label for="message">Your message</label>
+<textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+<button class="btn" type="submit">Continue to WhatsApp ↗</button>
+<p class="form-note">Your message is not sent automatically. WhatsApp will open so you can review and press Send.</p>
+</form>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="container">© <span id="year"></span> Charles Mithamo. All rights reserved.</div></footer>
+<script>
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>navLinks.classList.remove('open')));
+document.getElementById('year').textContent=new Date().getFullYear();
+document.getElementById('contactForm').addEventListener('submit',function(event){
+  event.preventDefault();
+  if(!this.reportValidity())return;
+  const name=document.getElementById('visitorName').value.trim();
+  const email=document.getElementById('visitorEmail').value.trim();
+  const service=document.getElementById('service').value;
+  const message=document.getElementById('message').value.trim();
+  const text=`Hello Charles, my name is ${name}.\nEmail: ${email}\nService: ${service}\nMessage: ${message}`;
+  window.location.href='https://wa.me/254716397341?text='+encodeURIComponent(text);
+});
+</script>
+</body>
+</html>
