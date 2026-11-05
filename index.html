@@ -187,33 +187,36 @@
       align-items: center;
     }
 
-    .hero h1 {@keyframes heroEnter {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-content .eyebrow,
-.hero-content h1,
-.hero-content .hero-copy,
-.hero-content .hero-buttons,
-.hero-content .hero-note {
-  animation: heroEnter 0.8s ease both;
-}
-
-.hero-content h1 { animation-delay: 0.15s; }
-.hero-content .hero-copy { animation-delay: 0.3s; }
-.hero-content .hero-buttons { animation-delay: 0.45s; }
-.hero-content .hero-note { animation-delay: 0.6s; }
+    .hero h1 {
       font-size: clamp(2.8rem, 7vw, 5.6rem);
-      letter-spacing: -4px;
+      letter-spacing: -3px;
+      line-height: 1.08;
       margin: 15px 0 22px;
     }
+
+    @keyframes heroEnter {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content .eyebrow,
+    .hero-content h1,
+    .hero-content .hero-copy,
+    .hero-content .hero-buttons,
+    .hero-content .hero-note {
+      animation: heroEnter 0.8s ease both;
+    }
+
+    .hero-content h1 { animation-delay: 0.15s; }
+    .hero-content .hero-copy { animation-delay: 0.3s; }
+    .hero-content .hero-buttons { animation-delay: 0.45s; }
+    .hero-content .hero-note { animation-delay: 0.6s; }
 
     .hero-copy {
       color: var(--muted);
@@ -789,6 +792,7 @@
         <a href="#projects">Projects</a>
         <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
+        <a href="client-portal/login.html">CLIENT PORTAL</a>
       </nav>
 
       <div class="nav-actions">
