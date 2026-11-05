@@ -100,12 +100,49 @@
   © 2026 Charles Mithamo. All Rights Reserved.
 </footer>
 
-<script>
-document.getElementById("requestForm").addEventListener("submit", function(event) {
+<script type="module">
+import { supabase } from './supabase-client.js';
+
+const form = document.getElementById("requestForm");
+const message = document.getElementById("requestMessage");
+const button = form.querySelector('button[type="submit"]');
+
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  document.getElementById("requestMessage").textContent =
-    "Your form is ready. Secure request submission will be activated when the backend is connected.";
+  message.textContent = "";
+  button.disabled = true;
+  button.textContent = "SUBMITTING REQUEST...";
+
+  const request = {
+    customer_id: null,
+    full_name: document.getElementById("name").value.trim(),
+    email: document.getElementById("email").value.trim().toLowerCase(),
+    phone: document.getElementById("phone").value.trim(),
+    service_type: document.getElementById("service").value,
+    budget: document.getElementById("budget").value,
+    description: document.getElementById("details").value.trim()
+  };
+
+  try {
+    const { error } = await supabase
+      .from("service_requests")
+      .insert(request);
+
+    if (error) throw error;
+
+    message.textContent =
+      "Thank you! Your project request has been submitted successfully. Charles will contact you soon.";
+
+    form.reset();
+
+  } catch (error) {
+    message.textContent =
+      "Could not submit your request: " + error.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = "SUBMIT PROJECT REQUEST";
+  }
 });
 </script>
 
