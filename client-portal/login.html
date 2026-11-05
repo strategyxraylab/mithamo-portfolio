@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>Client Login | Charles Mithamo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="portal-header">
+  <a class="brand" href="../index.html">
+    CHARLES <span>MITHAMO</span>
+  </a>
+  <a href="../index.html">Main Website</a>
+</header>
+
+<main class="portal-main">
+  <section class="portal-card">
+
+    <h1>CLIENT PORTAL</h1>
+    <p class="subtitle">Welcome back. Sign in to manage your projects.</p>
+
+    <form id="loginForm">
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required>
+      </div>
+
+      <button type="submit" class="gold-btn">
+        SIGN IN
+      </button>
+
+    </form>
+
+    <div class="form-links">
+      <p><a href="forgot-password.html">Forgot your password?</a></p>
+      <p>Don't have an account?
+        <a href="register.html">Create Account</a>
+      </p>
+      <p>Need a service?
+        <a href="request-service.html">Submit a Request</a>
+      </p>
+    </div>
+
+    <p id="loginMessage" class="subtitle" aria-live="polite"></p>
+
+  </section>
+</main>
+
+<footer class="portal-footer">
+  © 2026 Charles Mithamo. All Rights Reserved.
+</footer>
+
+<script type="module">
+import { supabase } from './supabase-client.js';
+
+const form = document.getElementById("loginForm");
+const message = document.getElementById("loginMessage");
+const button = form.querySelector('button[type="submit"]');
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const email = document.getElementById("email").value.trim().toLowerCase();
+  const password = document.getElementById("password").value;
+
+  message.textContent = "";
+  button.disabled = true;
+  button.textContent = "SIGNING IN...";
+
+  try {
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password
+    });
+
+    if (error) throw error;
+
+    message.textContent = "Login successful. Opening your dashboard...";
+
+    window.location.href = "dashboard.html";
+
+  } catch (error) {
+    message.textContent = "Login failed: " + error.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = "SIGN IN";
+  }
+});
+</script>
+
+</body>
+</html>

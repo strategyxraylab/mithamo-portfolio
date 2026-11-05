@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>My Dashboard | Charles Mithamo</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.dashboard {
+  max-width: 1050px;
+  width: 100%;
+  margin: auto;
+}
+.welcome {
+  margin-bottom: 30px;
+}
+.welcome h1 {
+  color: var(--gold-light);
+  font-size: 30px;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+  margin: 25px 0;
+}
+.stat, .project {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+.stat strong {
+  display: block;
+  font-size: 26px;
+  color: var(--gold);
+}
+.stat span, .muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+.project {
+  margin-top: 15px;
+}
+.project h3 {
+  color: var(--gold-light);
+}
+.status {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 12px;
+  border: 1px solid var(--gold);
+  border-radius: 20px;
+  color: var(--gold-light);
+  font-size: 12px;
+}
+@media(max-width:600px) {
+  .stats { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="portal-header">
+  <a class="brand" href="../index.html">
+    CHARLES <span>MITHAMO</span>
+  </a>
+  <button id="signOutBtn" class="gold-btn" type="button">SIGN OUT</button>
+</header>
+
+<main class="portal-main">
+<div class="dashboard">
+
+  <div class="welcome">
+    <p class="muted">CLIENT WORKSPACE</p>
+    <h1 id="welcomeName">My Dashboard</h1>
+    <p class="muted">Manage your creative projects in one place.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <strong id="totalProjects">0</strong>
+      <span>My Projects</span>
+    </div>
+    <div class="stat">
+      <strong id="activeProjects">0</strong>
+      <span>In Progress</span>
+    </div>
+    <div class="stat">
+      <strong id="completedProjects">0</strong>
+      <span>Completed</span>
+    </div>
+  </div>
+
+  <h2>My Projects</h2>
+
+  <div id="projectsList" aria-live="polite">
+    <p class="muted">Loading your projects...</p>
+  </div>
+
+  <a href="request-service.html" class="gold-btn"
+     style="margin-top:18px">
+    REQUEST A NEW SERVICE
+  </a>
+
+  <div class="project">
+    <h3>Need assistance?</h3>
+    <p class="muted">
+      Contact Charles Mithamo about your project.
+    </p>
+    <a href="../contact.html">Contact Me</a>
+  </div>
+
+</div>
+</main>
+
+<footer class="portal-footer">
+  © 2026 Charles Mithamo. All Rights Reserved.
+</footer>
+
+
+<script type="module">
+import { supabase } from './supabase-client.js';
+
+const welcomeName = document.getElementById('welcomeName');
+const projectsList = document.getElementById('projectsList');
+
+function showMessage(message) {
+  projectsList.textContent = message;
+}
+
+async function loadDashboard() {
+  const { data: sessionData, error: sessionError } =
+    await supabase.auth.getSession();
+
+  if (sessionError) {
+    showMessage('Unable to verify your login. Please sign in again.');
+    return;
+  }
+
+  const session = sessionData.session;
+
+  if (!session) {
+    window.location.replace('login.html');
+    return;
+  }
+
+  const user = session.user;
+
+  const name =
+    user.user_metadata?.full_name ||
+    user.email ||
+    'Customer';
+
+  welcomeName.textContent = 'Welcome, ' + name;
+
+  const { data: projects, error } = await supabase
+    .from('projects')
+    .select('id, project_name, service_type, status, description, created_at')
+    .eq('customer_id', user.id)
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    showMessage('Could not load projects: ' + error.message);
+    return;
+  }
+
+  const items = projects || [];
+
+  document.getElementById('totalProjects').textContent = items.length;
+
+  document.getElementById('activeProjects').textContent =
+    items.filter(p => ['in progress', 'in_progress'].includes(
+      (p.status || '').toLowerCase()
+    )).length;
+
+  document.getElementById('completedProjects').textContent =
+    items.filter(p => (p.status || '').toLowerCase() === 'completed').length;
+
+  projectsList.replaceChildren();
+
+  if (items.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'project';
+
+    const heading = document.createElement('h3');
+    heading.textContent = 'No projects available yet';
+
+    const detail = document.createElement('p');
+    detail.className = 'muted';
+    detail.textContent =
+      'Your projects will appear here when a project is added to your account.';
+
+    empty.append(heading, detail);
+    projectsList.append(empty);
+    return;
+  }
+
+  items.forEach(project => {
+    const card = document.createElement('div');
+    card.className = 'project';
+
+    const heading = document.createElement('h3');
+    heading.textContent = project.project_name;
+
+    const service = document.createElement('p');
+    service.className = 'muted';
+    service.textContent = project.service_type || 'Creative service';
+
+    const status = document.createElement('span');
+    status.className = 'status';
+    status.textContent = project.status || 'Pending';
+
+    card.append(heading, service, status);
+
+    if (project.description) {
+      const description = document.createElement('p');
+      description.className = 'muted';
+      description.textContent = project.description;
+      card.append(description);
+    }
+
+    projectsList.append(card);
+  });
+}
+
+document.getElementById('signOutBtn').addEventListener('click', async () => {
+  const button = document.getElementById('signOutBtn');
+  button.disabled = true;
+
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    alert('Sign out failed: ' + error.message);
+    button.disabled = false;
+    return;
+  }
+
+  window.location.replace('login.html');
+});
+
+loadDashboard();
+</script>
+\n</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>Create Account | Charles Mithamo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="portal-header">
+  <a class="brand" href="../index.html">
+    CHARLES <span>MITHAMO</span>
+  </a>
+  <a href="../index.html">Main Website</a>
+</header>
+
+<main class="portal-main">
+  <section class="portal-card">
+
+    <h1>CREATE ACCOUNT</h1>
+    <p class="subtitle">Join the Charles Mithamo Client Portal.</p>
+
+    <form id="registerForm">
+
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name"
+          placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email"
+          placeholder="Enter your email"
+          autocomplete="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone"
+          placeholder="Enter your phone number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Create Password</label>
+        <input type="password" id="password"
+          placeholder="At least 8 characters"
+          minlength="8" required>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword"
+          placeholder="Confirm your password" required>
+      </div>
+
+      <button type="submit" class="gold-btn">
+        CREATE MY ACCOUNT
+      </button>
+
+    </form>
+
+    <p id="registerMessage" class="subtitle"
+       aria-live="polite"></p>
+
+    <div class="form-links">
+      <p>Already have an account?
+        <a href="login.html">Sign In</a>
+      </p>
+      <p>Want a service without registering?
+        <a href="request-service.html">Submit a Request</a>
+      </p>
+    </div>
+
+  </section>
+</main>
+
+<footer class="portal-footer">
+  © 2026 Charles Mithamo. All Rights Reserved.
+</footer>
+
+<script type="module">
+import { supabase } from './supabase-client.js';
+
+const form = document.getElementById("registerForm");
+const message = document.getElementById("registerMessage");
+const button = form.querySelector('button[type="submit"]');
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim().toLowerCase();
+  const phone = document.getElementById("phone").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  message.textContent = "";
+
+  if (password !== confirmPassword) {
+    message.textContent = "Your passwords do not match.";
+    return;
+  }
+
+  if (password.length < 8) {
+    message.textContent = "Your password must contain at least 8 characters.";
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "CREATING ACCOUNT...";
+
+  try {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          full_name: name,
+          phone: phone
+        },
+        emailRedirectTo:
+          "https://strategyxraylab.github.io/mithamo-portfolio/client-portal/dashboard.html"
+      }
+    });
+
+    if (error) throw error;
+
+    if (data.session) {
+      message.textContent =
+        "Account created successfully. You can now sign in.";
+    } else {
+      message.textContent =
+        "Registration received! Check your email for the confirmation link.";
+    }
+
+    form.reset();
+
+  } catch (error) {
+    message.textContent = "Registration failed: " + error.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = "CREATE MY ACCOUNT";
+  }
+});
+</script>
+
+</body>
+</html>
