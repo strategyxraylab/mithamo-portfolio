@@ -178,7 +178,47 @@
       border-color: var(--border);
     }
 
-    .hero { padding: 90px 0 80px; overflow: hidden; }
+    /* CREATIVE STUDIO HOMEPAGE BACKGROUND */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      padding: 90px 0 80px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 78% 38%, rgba(212,175,55,.13), transparent 38%),
+        radial-gradient(ellipse at 12% 15%, rgba(255,255,255,.045), transparent 32%),
+        linear-gradient(115deg, #090909 0%, #11100e 48%, #090909 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .22;
+      background-image:
+        linear-gradient(rgba(212,175,55,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,175,55,.07) 1px, transparent 1px);
+      background-size: 65px 65px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .hero::after {
+      content: "DESIGN  /  CREATE  /  INSPIRE";
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      transform-origin: center;
+      color: rgba(212,175,55,.10);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 7px;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: -1;
+    }
 
     .hero-grid {
       display: grid;
