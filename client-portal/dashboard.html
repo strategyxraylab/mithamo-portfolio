@@ -4,113 +4,448 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#090909">
-<title>My Dashboard | Charles Mithamo</title>
+<title>Client Workspace | Charles Mithamo</title>
 <link rel="stylesheet" href="style.css">
+
 <style>
-.dashboard {
-  max-width: 1050px;
-  width: 100%;
-  margin: auto;
+:root {
+  --lux-gold: #d6ad60;
+  --lux-light: #f4d99d;
+  --lux-bg: #080808;
+  --lux-card: #141414;
+  --lux-border: rgba(214,173,96,.2);
+  --lux-muted: #a5a5a5;
 }
+
+body {
+  background: var(--lux-bg);
+  color: #f5f1e9;
+}
+
+.portal-header {
+  padding: 18px 6%;
+  border-bottom: 1px solid var(--lux-border);
+  background: #0c0c0c;
+}
+
+.brand {
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.brand span {
+  color: var(--lux-gold);
+}
+
+.gold-btn, .logout-btn {
+  border: 1px solid var(--lux-gold);
+  border-radius: 7px;
+  padding: 12px 19px;
+  background: linear-gradient(135deg,#f2d18d,#b88a3c);
+  color: #111;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logout-btn {
+  background: transparent;
+  color: var(--lux-light);
+}
+
+.portal-main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 35px 20px 65px;
+}
+
+.dashboard {
+  width: 100%;
+}
+
 .welcome {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 32px;
+  border: 1px solid var(--lux-border);
+  border-radius: 18px;
+  background:
+    radial-gradient(ellipse at 90% 20%,rgba(214,173,96,.17),transparent 48%),
+    linear-gradient(125deg,#191714,#101010 65%);
   margin-bottom: 30px;
 }
-.welcome h1 {
-  color: var(--gold-light);
-  font-size: 30px;
+
+.welcome-tag {
+  color: var(--lux-gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: bold;
 }
+
+.welcome h1 {
+  font-size: clamp(27px,5vw,42px);
+  margin: 16px 0 10px;
+  color: #fff;
+}
+
+.welcome h1 span {
+  color: var(--lux-light);
+}
+
+.welcome p {
+  color: var(--lux-muted);
+  line-height: 1.7;
+  max-width: 550px;
+}
+
+.welcome-decoration {
+  position: absolute;
+  right: 35px;
+  top: 35px;
+  font-size: 85px;
+  color: rgba(214,173,96,.13);
+}
+
+.section-label {
+  color: var(--lux-gold);
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin: 35px 0 17px;
+}
+
 .stats {
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 15px;
-  margin: 25px 0;
+  margin: 25px 0 35px;
 }
-.stat, .project {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
+
+.stat {
+  padding: 23px 19px;
+  border: 1px solid var(--lux-border);
+  border-radius: 13px;
+  background: linear-gradient(145deg,#191919,#101010);
+  transition: .25s;
 }
+
+.stat:hover, .project:hover {
+  border-color: var(--lux-gold);
+  transform: translateY(-3px);
+}
+
+.stat-icon {
+  font-size: 22px;
+  margin-bottom: 14px;
+}
+
 .stat strong {
   display: block;
-  font-size: 26px;
-  color: var(--gold);
+  color: var(--lux-light);
+  font-size: 30px;
+  margin-bottom: 5px;
 }
-.stat span, .muted {
-  color: var(--muted);
-  font-size: 13px;
-}
-.project {
-  margin-top: 15px;
-}
-.project h3 {
-  color: var(--gold-light);
-}
-.status {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 5px 12px;
-  border: 1px solid var(--gold);
-  border-radius: 20px;
-  color: var(--gold-light);
+
+.stat span {
+  color: var(--lux-muted);
   font-size: 12px;
 }
-@media(max-width:600px) {
-  .stats { grid-template-columns: 1fr; }
+
+.projects-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 17px;
+}
+
+.projects-heading h2 {
+  color: #fff;
+  font-size: 23px;
+}
+
+.projects-heading p {
+  color: var(--lux-muted);
+  font-size: 13px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 17px;
+}
+
+.project {
+  background: linear-gradient(145deg,#191919,#101010);
+  border: 1px solid var(--lux-border);
+  border-radius: 14px;
+  padding: 23px;
+  transition: .25s;
+  min-width: 0;
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.project h3 {
+  color: var(--lux-light);
+  font-size: 19px;
+  margin: 0 0 9px;
+  overflow-wrap: anywhere;
+}
+
+.project-service {
+  color: var(--lux-muted);
+  font-size: 13px;
+}
+
+.status {
+  display: inline-block;
+  padding: 7px 11px;
+  border: 1px solid var(--lux-gold);
+  border-radius: 30px;
+  color: var(--lux-light);
+  font-size: 10px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.project-description {
+  color: #b5b5b5;
+  line-height: 1.7;
+  font-size: 13px;
+  margin: 18px 0;
+  overflow-wrap: anywhere;
+}
+
+.progress-heading {
+  display: flex;
+  justify-content: space-between;
+  color: var(--lux-muted);
+  font-size: 11px;
+  margin-bottom: 9px;
+}
+
+.progress-track {
+  height: 6px;
+  background: #303030;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg,#9b7130,#f4d99d);
+  border-radius: 10px;
+}
+
+.project-date {
+  color: #777;
+  font-size: 11px;
+  margin-top: 17px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 42px 20px;
+  border: 1px dashed var(--lux-border);
+  border-radius: 15px;
+  background: #111;
+}
+
+.empty-icon {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.empty-state h3 {
+  color: var(--lux-light);
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: var(--lux-muted);
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.action-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 14px;
+  border: 1px solid var(--lux-border);
+  background: #14120e;
+}
+
+.action-panel h3 {
+  color: var(--lux-light);
+  margin-bottom: 8px;
+}
+
+.action-panel p {
+  color: var(--lux-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.contact-panel {
+  margin-top: 17px;
+  padding: 22px;
+  border-radius: 13px;
+  background: #111;
+  border: 1px solid #242424;
+}
+
+.contact-panel h3 {
+  color: var(--lux-light);
+  margin-bottom: 9px;
+}
+
+.contact-panel p {
+  color: var(--lux-muted);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.portal-footer {
+  border-top: 1px solid var(--lux-border);
+  padding: 24px 15px;
+  text-align: center;
+  color: #777;
+  font-size: 12px;
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+@media(max-width:750px) {
+  .stats {
+    grid-template-columns: repeat(2,1fr);
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .welcome {
+    padding: 30px 22px;
+  }
+  .welcome-decoration {
+    right: 15px;
+    top: 15px;
+    font-size: 55px;
+  }
+}
+
+@media(max-width:400px) {
+  .stats {
+    gap: 9px;
+  }
+  .stat {
+    padding: 17px 13px;
+  }
+  .stat strong {
+    font-size: 25px;
+  }
 }
 </style>
 </head>
+
 <body>
 
 <header class="portal-header">
   <a class="brand" href="../index.html">
     CHARLES <span>MITHAMO</span>
   </a>
-  <button id="signOutBtn" class="gold-btn" type="button">SIGN OUT</button>
+  <button id="signOutBtn" class="logout-btn" type="button">
+    SIGN OUT
+  </button>
 </header>
 
 <main class="portal-main">
 <div class="dashboard">
 
-  <div class="welcome">
-    <p class="muted">CLIENT WORKSPACE</p>
-    <h1 id="welcomeName">My Dashboard</h1>
-    <p class="muted">Manage your creative projects in one place.</p>
-  </div>
+  <section class="welcome">
+    <div class="welcome-decoration">✦</div>
+    <div class="welcome-tag">PRIVATE CLIENT AREA</div>
+    <h1 id="welcomeName">Welcome</h1>
+    <p>
+      Your creative journey, all in one place.
+      Follow your projects, track progress and
+      connect with Charles Mithamo.
+    </p>
+  </section>
 
-  <div class="stats">
+  <div class="section-label">YOUR PROJECT OVERVIEW</div>
+
+  <section class="stats">
     <div class="stat">
+      <div class="stat-icon">✦</div>
       <strong id="totalProjects">0</strong>
-      <span>My Projects</span>
+      <span>Total Projects</span>
     </div>
+
     <div class="stat">
+      <div class="stat-icon">◷</div>
+      <strong id="pendingProjects">0</strong>
+      <span>Pending Projects</span>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">⚙</div>
       <strong id="activeProjects">0</strong>
       <span>In Progress</span>
     </div>
+
     <div class="stat">
+      <div class="stat-icon">✓</div>
       <strong id="completedProjects">0</strong>
       <span>Completed</span>
     </div>
-  </div>
+  </section>
 
-  <h2>My Projects</h2>
+  <section>
+    <div class="projects-heading">
+      <div>
+        <div class="section-label">YOUR CREATIVE JOURNEY</div>
+        <h2>My Projects</h2>
+      </div>
+      <p id="projectCount">0 projects</p>
+    </div>
 
-  <div id="projectsList" aria-live="polite">
-    <p class="muted">Loading your projects...</p>
-  </div>
+    <div id="projectsList" aria-live="polite">
+      <p>Loading your projects...</p>
+    </div>
+  </section>
 
-  <a href="request-service.html" class="gold-btn"
-     style="margin-top:18px">
-    REQUEST A NEW SERVICE
-  </a>
+  <section class="action-panel">
+    <div>
+      <h3>Have a new idea?</h3>
+      <p>Let's turn your next creative idea into reality.</p>
+    </div>
+    <a href="request-service.html" class="gold-btn">
+      REQUEST A SERVICE
+    </a>
+  </section>
 
-  <div class="project">
-    <h3>Need assistance?</h3>
-    <p class="muted">
-      Contact Charles Mithamo about your project.
+  <section class="contact-panel">
+    <h3>Need personal assistance?</h3>
+    <p>
+      Have questions about your project?
+      Get in touch with Charles Mithamo.
     </p>
-    <a href="../contact.html">Contact Me</a>
-  </div>
+    <a href="../contact.html">CONTACT CHARLES →</a>
+  </section>
 
 </div>
 </main>
@@ -118,7 +453,6 @@
 <footer class="portal-footer">
   © 2026 Charles Mithamo. All Rights Reserved.
 </footer>
-
 
 <script type="module">
 import { supabase } from './supabase-client.js';
@@ -128,6 +462,23 @@ const projectsList = document.getElementById('projectsList');
 
 function showMessage(message) {
   projectsList.textContent = message;
+}
+
+function getStatus(status) {
+  return String(status || 'pending')
+    .toLowerCase()
+    .replace(/_/g, ' ');
+}
+
+function getProgress(status) {
+  const values = {
+    pending: 15,
+    accepted: 35,
+    'in progress': 70,
+    completed: 100,
+    rejected: 0
+  };
+  return values[status] ?? 15;
 }
 
 async function loadDashboard() {
@@ -170,59 +521,113 @@ async function loadDashboard() {
 
   document.getElementById('totalProjects').textContent = items.length;
 
+  document.getElementById('pendingProjects').textContent =
+    items.filter(p => getStatus(p.status) === 'pending').length;
+
   document.getElementById('activeProjects').textContent =
-    items.filter(p => ['in progress', 'in_progress'].includes(
-      (p.status || '').toLowerCase()
-    )).length;
+    items.filter(p => getStatus(p.status) === 'in progress').length;
 
   document.getElementById('completedProjects').textContent =
-    items.filter(p => (p.status || '').toLowerCase() === 'completed').length;
+    items.filter(p => getStatus(p.status) === 'completed').length;
+
+  document.getElementById('projectCount').textContent =
+    items.length + (items.length === 1 ? ' project' : ' projects');
 
   projectsList.replaceChildren();
 
   if (items.length === 0) {
     const empty = document.createElement('div');
-    empty.className = 'project';
+    empty.className = 'empty-state';
+
+    const icon = document.createElement('div');
+    icon.className = 'empty-icon';
+    icon.textContent = '✦';
 
     const heading = document.createElement('h3');
-    heading.textContent = 'No projects available yet';
+    heading.textContent = 'Your journey starts here';
 
     const detail = document.createElement('p');
-    detail.className = 'muted';
     detail.textContent =
-      'Your projects will appear here when a project is added to your account.';
+      'Your projects will appear here once Charles adds and assigns a project to your account.';
 
-    empty.append(heading, detail);
+    empty.append(icon, heading, detail);
     projectsList.append(empty);
     return;
   }
 
+  const grid = document.createElement('div');
+  grid.className = 'project-grid';
+
   items.forEach(project => {
-    const card = document.createElement('div');
+    const card = document.createElement('article');
     card.className = 'project';
 
+    const statusText = getStatus(project.status);
+    const progress = getProgress(statusText);
+
+    const top = document.createElement('div');
+    top.className = 'project-top';
+
+    const details = document.createElement('div');
+
     const heading = document.createElement('h3');
-    heading.textContent = project.project_name;
+    heading.textContent = project.project_name || 'Creative Project';
 
     const service = document.createElement('p');
-    service.className = 'muted';
+    service.className = 'project-service';
     service.textContent = project.service_type || 'Creative service';
+
+    details.append(heading, service);
 
     const status = document.createElement('span');
     status.className = 'status';
-    status.textContent = project.status || 'Pending';
+    status.textContent = statusText;
 
-    card.append(heading, service, status);
+    top.append(details, status);
 
-    if (project.description) {
-      const description = document.createElement('p');
-      description.className = 'muted';
-      description.textContent = project.description;
-      card.append(description);
-    }
+    const description = document.createElement('p');
+    description.className = 'project-description';
+    description.textContent =
+      project.description || 'Project details will be updated here.';
 
-    projectsList.append(card);
+    const progressHeading = document.createElement('div');
+    progressHeading.className = 'progress-heading';
+
+    const progressLabel = document.createElement('span');
+    progressLabel.textContent = 'PROJECT STAGE';
+
+    const progressValue = document.createElement('span');
+    progressValue.textContent = progress + '%';
+
+    progressHeading.append(progressLabel, progressValue);
+
+    const track = document.createElement('div');
+    track.className = 'progress-track';
+
+    const fill = document.createElement('div');
+    fill.className = 'progress-fill';
+    fill.style.width = progress + '%';
+
+    track.append(fill);
+
+    const date = document.createElement('p');
+    date.className = 'project-date';
+    date.textContent = project.created_at
+      ? 'Created: ' + new Date(project.created_at).toLocaleDateString()
+      : 'Date unavailable';
+
+    card.append(
+      top,
+      description,
+      progressHeading,
+      track,
+      date
+    );
+
+    grid.append(card);
   });
+
+  projectsList.append(grid);
 }
 
 document.getElementById('signOutBtn').addEventListener('click', async () => {
@@ -242,5 +647,6 @@ document.getElementById('signOutBtn').addEventListener('click', async () => {
 
 loadDashboard();
 </script>
-\n</body>
+
+</body>
 </html>
