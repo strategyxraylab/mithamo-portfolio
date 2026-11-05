@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Charles Mithamo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 35px 18px;
+    }
+    .admin-heading {
+      color: var(--gold-light);
+      margin-bottom: 5px;
+    }
+    .admin-subtitle, .request-meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
+      gap: 14px;
+      margin: 25px 0;
+    }
+    .stat-card, .request-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .stat-card strong {
+      display: block;
+      color: var(--gold-light);
+      font-size: 27px;
+    }
+    .request-card {
+      margin-bottom: 16px;
+    }
+    .request-card h3 {
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .request-card p {
+      margin: 8px 0;
+      overflow-wrap: anywhere;
+    }
+    .request-card select {
+      margin: 10px 0;
+    }
+    .request-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .request-actions select {
+      flex: 1;
+      min-width: 160px;
+    }
+    .save-btn, .logout-btn {
+      border: 0;
+      border-radius: 7px;
+      padding: 12px 18px;
+      background: var(--gold);
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .logout-btn {
+      background: var(--surface2);
+      color: var(--gold-light);
+      border: 1px solid var(--border);
+    }
+    #adminMessage {
+      margin: 18px 0;
+      color: var(--gold-light);
+      overflow-wrap: anywhere;
+    }
+    .empty-state {
+      color: var(--muted);
+      padding: 25px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header class="portal-header">
+  <div class="brand">CHARLES <span>MITHAMO</span></div>
+  <button class="logout-btn" id="logoutBtn">LOG OUT</button>
+</header>
+
+<main class="admin-main">
+  <h1 class="admin-heading">Admin Dashboard</h1>
+  <p class="admin-subtitle">Manage customer requests and creative projects.</p>
+
+  <div class="admin-stats">
+    <div class="stat-card">Total Requests<strong id="totalRequests">0</strong></div>
+    <div class="stat-card">Pending<strong id="pendingRequests">0</strong></div>
+    <div class="stat-card">In Progress<strong id="activeRequests">0</strong></div>
+    <div class="stat-card">Completed<strong id="completedRequests">0</strong></div>
+  </div>
+
+  <h2 style="color:var(--gold-light);margin:25px 0 15px;">Customer Requests</h2>
+  <p id="adminMessage">Checking administrator access...</p>
+  <section id="requestsList"></section>
+</main>
+
+<footer class="portal-footer">
+  © 2026 Charles Mithamo. All Rights Reserved.
+</footer>
+
+<script type="module">
+import { supabase } from './supabase-client.js';
+
+const message = document.getElementById('adminMessage');
+const list = document.getElementById('requestsList');
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  })[char]);
+}
+
+async function checkAdmin() {
+  const { data: sessionData, error: sessionError } =
+    await supabase.auth.getSession();
+
+  if (sessionError) throw sessionError;
+
+  if (!sessionData.session) {
+    window.location.href = 'login.html';
+    return false;
+  }
+
+  const { data: isAdmin, error } =
+    await supabase.rpc('is_portal_admin');
+
+  if (error) throw error;
+
+  if (isAdmin !== true) {
+    message.textContent = 'Access denied. Administrator permission is required.';
+    list.innerHTML = '';
+    return false;
+  }
+
+  return true;
+}
+
+async function loadRequests() {
+  message.textContent = 'Loading customer requests...';
+
+  const { data, error } = await supabase
+    .from('service_requests')
+    .select('id, full_name, email, phone, service_type, budget, description, status, created_at')
+    .order('created_at', { ascending: false });
+
+  if (error) throw error;
+
+  const requests = data || [];
+
+  document.getElementById('totalRequests').textContent = requests.length;
+  document.getElementById('pendingRequests').textContent =
+    requests.filter(r => String(r.status).toLowerCase() === 'pending').length;
+  document.getElementById('activeRequests').textContent =
+    requests.filter(r => String(r.status).toLowerCase() === 'in_progress').length;
+  document.getElementById('completedRequests').textContent =
+    requests.filter(r => String(r.status).toLowerCase() === 'completed').length;
+
+  if (!requests.length) {
+    list.innerHTML = '<p class="empty-state">No customer requests have been received yet.</p>';
+    message.textContent = 'Administrator access confirmed.';
+    return;
+  }
+
+  const statuses = ['pending', 'accepted', 'in_progress', 'completed', 'rejected'];
+
+  list.innerHTML = requests.map(request => {
+    const currentStatus = statuses.includes(String(request.status).toLowerCase())
+      ? String(request.status).toLowerCase()
+      : 'pending';
+
+    const date = request.created_at
+      ? new Date(request.created_at).toLocaleString()
+      : 'Date unavailable';
+
+    return `
+      <article class="request-card">
+        <h3>${escapeHTML(request.full_name)}</h3>
+        <p class="request-meta">Submitted: ${escapeHTML(date)}</p>
+        <p><strong>Email:</strong> ${escapeHTML(request.email)}</p>
+        <p><strong>Phone:</strong> ${escapeHTML(request.phone)}</p>
+        <p><strong>Service:</strong> ${escapeHTML(request.service_type)}</p>
+        <p><strong>Budget:</strong> ${escapeHTML(request.budget)}</p>
+        <p><strong>Project details:</strong> ${escapeHTML(request.description)}</p>
+        <p><strong>Current status:</strong> ${escapeHTML(request.status)}</p>
+        <div class="request-actions">
+          <select class="status-select" aria-label="Change request status">
+            ${statuses.map(status =>
+              `<option value="${status}" ${status === currentStatus ? 'selected' : ''}>${status.replace('_', ' ').toUpperCase()}</option>`
+            ).join('')}
+          </select>
+          <button class="save-btn" data-id="${escapeHTML(request.id)}">UPDATE STATUS</button>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  message.textContent = 'Administrator access confirmed. Requests loaded.';
+}
+
+list.addEventListener('click', async event => {
+  const button = event.target.closest('.save-btn');
+  if (!button) return;
+
+  const card = button.closest('.request-card');
+  const status = card.querySelector('.status-select').value;
+  const id = button.dataset.id;
+
+  button.disabled = true;
+  button.textContent = 'SAVING...';
+
+  try {
+    const { error } = await supabase
+      .from('service_requests')
+      .update({ status })
+      .eq('id', id);
+
+    if (error) throw error;
+
+    message.textContent = 'Request status updated successfully.';
+    await loadRequests();
+  } catch (error) {
+    message.textContent = 'Could not update request: ' + error.message;
+    button.disabled = false;
+    button.textContent = 'UPDATE STATUS';
+  }
+});
+
+document.getElementById('logoutBtn').addEventListener('click', async () => {
+  await supabase.auth.signOut();
+  window.location.href = 'login.html';
+});
+
+try {
+  if (await checkAdmin()) {
+    await loadRequests();
+  }
+} catch (error) {
+  message.textContent = 'Dashboard error: ' + error.message;
+}
+</script>
+
+</body>
+</html>
