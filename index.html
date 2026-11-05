@@ -37,7 +37,11 @@
       --accent: #D4AF37;
       --border: rgba(212,175,55,.18);
       --shadow: 0 20px 60px rgba(0,0,0,.45);
+
     }
+
+    .hero::before {
+
 
     body.light {
       --bg: #f4f7f2;
@@ -185,9 +189,9 @@
       padding: 90px 0 80px;
       overflow: hidden;
       background:
-        radial-gradient(ellipse at 78% 38%, rgba(212,175,55,.13), transparent 38%),
-        radial-gradient(ellipse at 12% 15%, rgba(255,255,255,.045), transparent 32%),
-        linear-gradient(115deg, #090909 0%, #11100e 48%, #090909 100%);
+        linear-gradient(rgba(5,5,5,.68), rgba(5,5,5,.82)),
+        url("hero-background.png") center center / cover no-repeat;
+
     }
 
     .hero::before {
