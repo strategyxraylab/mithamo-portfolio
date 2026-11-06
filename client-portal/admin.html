@@ -15,6 +15,31 @@
       color: var(--gold-light);
       margin-bottom: 5px;
     }
+
+    .admin-welcome {
+      background: linear-gradient(135deg, #1c1912, #0b0b0b);
+      border: 1px solid var(--gold);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+    .admin-welcome[hidden] {
+      display: none;
+    }
+    .admin-welcome .welcome-label {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 2px;
+      font-weight: bold;
+    }
+    .admin-welcome h2 {
+      color: var(--gold-light);
+      margin: 12px 0 8px;
+    }
+    .admin-welcome p {
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
     .admin-subtitle, .request-meta {
       color: var(--muted);
       font-size: 14px;
@@ -184,6 +209,13 @@
 </header>
 
 <main class="admin-main">
+  <section class="admin-welcome" id="adminWelcome" hidden>
+    <p class="welcome-label">PRIVATE ADMINISTRATOR AREA</p>
+    <h2>Welcome back, Charles.</h2>
+    <p>Signed in as: <span id="adminEmail"></span></p>
+    <p>Your personal Creative Hub workspace.</p>
+  </section>
+
   <h1 class="admin-heading">Admin Dashboard</h1>
   <p class="admin-subtitle">Manage customer requests and creative projects.</p>
 
@@ -304,6 +336,10 @@ async function checkAdmin() {
     list.innerHTML = '';
     return false;
   }
+
+  document.getElementById('adminEmail').textContent =
+    sessionData.session.user.email || 'Administrator';
+  document.getElementById('adminWelcome').hidden = false;
 
   return true;
 }
