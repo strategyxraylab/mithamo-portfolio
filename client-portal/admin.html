@@ -141,6 +141,39 @@
       cursor: not-allowed;
     }
 
+    .create-project-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0 30px;
+    }
+    .create-project-form {
+      display: grid;
+      gap: 14px;
+    }
+    .create-project-form label {
+      display: grid;
+      gap: 7px;
+      color: var(--gold-light);
+    }
+    .create-project-form input,
+    .create-project-form select,
+    .create-project-form textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface2);
+      color: var(--text);
+      font: inherit;
+    }
+    .create-project-form button {
+      width: 100%;
+      padding: 14px;
+    }
+
   </style>
 </head>
 <body>
@@ -166,6 +199,57 @@
   <section id="requestsList"></section>
 
   <h2 style="color:var(--gold-light);margin:35px 0 15px;">
+    Create & Assign Project
+  </h2>
+  <p class="admin-subtitle">
+    Select a customer request to assign a new project to the correct account.
+  </p>
+
+  <section class="create-project-panel">
+    <form id="createProjectForm" class="create-project-form">
+      <label>
+        Customer request
+        <select id="projectRequest" required>
+          <option value="">Loading linked requests...</option>
+        </select>
+      </label>
+
+      <label>
+        Project name
+        <input id="newProjectName" type="text"
+          maxlength="120" required placeholder="Enter project name">
+      </label>
+
+      <label>
+        Service type
+        <input id="newProjectService" type="text" readonly>
+      </label>
+
+      <label>
+        Project description
+        <textarea id="newProjectDescription"
+          rows="4" placeholder="Describe the project"></textarea>
+      </label>
+
+      <label>
+        Initial status
+        <select id="newProjectStatus">
+          <option value="accepted">Accepted</option>
+          <option value="in_progress">In Progress</option>
+          <option value="pending">Pending</option>
+        </select>
+      </label>
+
+      <button class="save-btn" id="createProjectBtn" type="submit">
+        CREATE & ASSIGN PROJECT
+      </button>
+    </form>
+    <p id="createProjectMessage" class="request-meta">
+      Choose a linked customer request to begin.
+    </p>
+  </section>
+
+  <h2 style="color:var(--gold-light);margin:35px 0 15px;">
     Project Progress Management
   </h2>
   <p class="admin-subtitle">
@@ -187,6 +271,7 @@ import { supabase } from './supabase-client.js';
 const message = document.getElementById('adminMessage');
 const list = document.getElementById('requestsList');
 const projectList = document.getElementById('projectsList');
+let requestCache = [];
 
 function escapeHTML(value) {
   return String(value ?? '').replace(/[&<>"']/g, char => ({
@@ -228,12 +313,30 @@ async function loadRequests() {
 
   const { data, error } = await supabase
     .from('service_requests')
-    .select('id, full_name, email, phone, service_type, budget, description, status, created_at')
+    .select('id, customer_id, full_name, email, phone, service_type, budget, description, status, created_at')
     .order('created_at', { ascending: false });
 
   if (error) throw error;
 
   const requests = data || [];
+  requestCache = requests;
+
+  const requestSelect = document.getElementById('projectRequest');
+  const linkedRequests = requests.filter(request => request.customer_id);
+
+  requestSelect.innerHTML =
+    '<option value="">Choose a linked customer request</option>' +
+    linkedRequests.map(request => `
+      <option value="${escapeHTML(request.id)}">
+        ${escapeHTML(request.full_name)} — ${escapeHTML(request.service_type)}
+        (${escapeHTML(request.status)})
+      </option>
+    `).join('');
+
+  if (!linkedRequests.length) {
+    requestSelect.innerHTML =
+      '<option value="">No linked customer requests found</option>';
+  }
 
   document.getElementById('totalRequests').textContent = requests.length;
   document.getElementById('pendingRequests').textContent =
@@ -358,6 +461,81 @@ async function loadProjects() {
     `;
   }).join('');
 }
+
+const projectRequestSelect = document.getElementById('projectRequest');
+
+projectRequestSelect.addEventListener('change', () => {
+  const request = requestCache.find(
+    item => item.id === projectRequestSelect.value
+  );
+
+  document.getElementById('newProjectName').value =
+    request ? (request.service_type || 'Creative') + ' Project' : '';
+
+  document.getElementById('newProjectService').value =
+    request ? (request.service_type || '') : '';
+
+  document.getElementById('newProjectDescription').value =
+    request ? (request.description || '') : '';
+});
+
+document.getElementById('createProjectForm').addEventListener('submit', async event => {
+  event.preventDefault();
+
+  const request = requestCache.find(
+    item => item.id === projectRequestSelect.value
+  );
+
+  const projectName = document.getElementById('newProjectName').value.trim();
+  const description = document.getElementById('newProjectDescription').value.trim();
+  const status = document.getElementById('newProjectStatus').value;
+  const button = document.getElementById('createProjectBtn');
+  const formMessage = document.getElementById('createProjectMessage');
+
+  if (!request || !request.customer_id) {
+    formMessage.textContent = 'Select a request linked to a registered customer account.';
+    return;
+  }
+
+  if (!projectName) {
+    formMessage.textContent = 'Enter a project name.';
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = 'CREATING PROJECT...';
+  formMessage.textContent = 'Creating and assigning project...';
+
+  try {
+    const { error } = await supabase
+      .from('projects')
+      .insert({
+        customer_id: request.customer_id,
+        project_name: projectName,
+        service_type: request.service_type || null,
+        status: status,
+        description: description || null,
+        progress: 0
+      });
+
+    if (error) throw error;
+
+    formMessage.textContent =
+      'Project created and assigned successfully!';
+
+    document.getElementById('createProjectForm').reset();
+    document.getElementById('newProjectService').value = '';
+
+    await loadProjects();
+
+  } catch (error) {
+    formMessage.textContent =
+      'Could not create project: ' + error.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = 'CREATE & ASSIGN PROJECT';
+  }
+});
 
 projectList.addEventListener('click', async event => {
   const button = event.target.closest('.progress-save-btn');
