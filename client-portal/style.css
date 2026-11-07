@@ -148,3 +148,155 @@ input:focus, select:focus, textarea:focus {
     font-size: 17px;
   }
 }
+
+/* =====================================
+   MITHAMO PORTFOLIO - GLASS DESIGN V2
+   Shared Admin + Creative Hub Theme
+===================================== */
+
+body:has(.admin-main),
+body:has(.dashboard) {
+  background:
+    radial-gradient(ellipse at 10% 5%, rgba(214,173,96,.13), transparent 38%),
+    radial-gradient(ellipse at 90% 85%, rgba(110,85,55,.12), transparent 40%),
+    linear-gradient(135deg,#090909,#17130e 55%,#080808);
+  background-attachment: fixed;
+  color: #f7f3eb;
+  font-family: Arial, sans-serif;
+}
+
+body:has(.admin-main) .portal-header,
+body:has(.dashboard) .portal-header {
+  background: rgba(15,14,12,.72);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border-bottom: 1px solid rgba(230,199,131,.22);
+  box-shadow: 0 8px 30px rgba(0,0,0,.2);
+  position: relative;
+  z-index: 5;
+}
+
+body:has(.admin-main) .admin-welcome,
+body:has(.admin-main) .stat-card,
+body:has(.admin-main) .request-card,
+body:has(.admin-main) .project-card,
+body:has(.admin-main) .create-project-panel,
+body:has(.dashboard) .welcome,
+body:has(.dashboard) .stat,
+body:has(.dashboard) .project {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,.105),
+    rgba(255,255,255,.025)
+  );
+  border: 1px solid rgba(230,199,131,.23);
+  border-radius: 18px;
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.10);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: background .3s ease, border-color .3s ease,
+              transform .3s ease, box-shadow .3s ease;
+}
+
+body:has(.admin-main) .stat-card,
+body:has(.dashboard) .stat {
+  padding: 24px;
+}
+
+body:has(.admin-main) .stat-card:hover,
+body:has(.admin-main) .request-card:hover,
+body:has(.admin-main) .project-card:hover,
+body:has(.admin-main) .create-project-panel:hover,
+body:has(.dashboard) .stat:hover,
+body:has(.dashboard) .project:hover {
+  border-color: rgba(244,217,157,.65);
+  box-shadow: 0 16px 40px rgba(214,173,96,.10);
+  transform: translateY(-4px);
+}
+
+body:has(.admin-main) .admin-welcome,
+body:has(.dashboard) .welcome {
+  background:
+    radial-gradient(ellipse at 90% 10%,rgba(214,173,96,.2),transparent 50%),
+    linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.025));
+  border-radius: 22px;
+}
+
+body:has(.admin-main) .admin-heading,
+body:has(.admin-main) h2,
+body:has(.dashboard) h2 {
+  letter-spacing: .3px;
+}
+
+body:has(.admin-main) input,
+body:has(.admin-main) select,
+body:has(.admin-main) textarea {
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(230,199,131,.22);
+  border-radius: 11px;
+  color: #fff;
+}
+
+body:has(.dashboard) .progress-track,
+body:has(.admin-main) .project-progress-track {
+  background: rgba(255,255,255,.12);
+}
+
+body:has(.admin-main) .save-btn,
+body:has(.admin-main) .progress-save-btn,
+body:has(.dashboard) .gold-btn {
+  border-radius: 11px;
+  box-shadow: 0 5px 20px rgba(214,173,96,.16);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+body:has(.admin-main) .save-btn:hover,
+body:has(.admin-main) .progress-save-btn:hover,
+body:has(.dashboard) .gold-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(214,173,96,.3);
+}
+
+body:has(.admin-main) .logout-btn,
+body:has(.dashboard) .logout-btn {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(230,199,131,.3);
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+}
+
+@media(max-width:750px) {
+  body:has(.dashboard) .stats {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 12px;
+  }
+
+  body:has(.dashboard) .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body:has(.admin-main) .admin-main {
+    padding: 25px 14px;
+  }
+
+  body:has(.dashboard) .welcome {
+    padding: 28px 20px;
+  }
+
+  body:has(.admin-main) .stat-card,
+  body:has(.dashboard) .stat {
+    padding: 18px 15px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  body:has(.admin-main) *,
+  body:has(.dashboard) * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* END MITHAMO GLASS DESIGN V2 */
