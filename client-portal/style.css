@@ -300,3 +300,269 @@ body:has(.dashboard) .logout-btn {
 }
 
 /* END MITHAMO GLASS DESIGN V2 */
+
+/* =========================================
+   MITHAMO CREATIVE SUITE - ADMIN V3
+========================================= */
+
+body:has(.admin-main) {
+  background:
+    radial-gradient(ellipse at 50% -15%, rgba(214,173,96,.20), transparent 48%),
+    radial-gradient(ellipse at 100% 45%, rgba(116,85,42,.10), transparent 35%),
+    #080808;
+}
+
+body:has(.admin-main) .admin-main {
+  max-width: 1180px;
+  padding: 42px 22px 65px;
+}
+
+body:has(.admin-main) .admin-heading {
+  font-size: clamp(30px, 6vw, 46px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  margin-top: 30px;
+  background: linear-gradient(110deg,#fff2d1,#d6ad60 55%,#fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body:has(.admin-main) .admin-subtitle {
+  line-height: 1.8;
+  color: #aaa49a;
+}
+
+body:has(.admin-main) .admin-welcome {
+  position: relative;
+  overflow: hidden;
+  padding: 34px;
+  min-height: 155px;
+  background:
+    radial-gradient(ellipse at 90% 20%,rgba(230,199,131,.23),transparent 48%),
+    linear-gradient(120deg,rgba(42,34,22,.88),rgba(14,14,14,.94));
+  border: 1px solid rgba(230,199,131,.38);
+  border-radius: 25px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
+}
+
+body:has(.admin-main) .admin-welcome::after {
+  content: "CM";
+  position: absolute;
+  right: 25px;
+  bottom: -35px;
+  font-size: clamp(90px,18vw,150px);
+  font-weight: 900;
+  letter-spacing: -12px;
+  color: rgba(230,199,131,.07);
+  pointer-events: none;
+}
+
+body:has(.admin-main) .admin-welcome h2 {
+  font-size: clamp(25px,5vw,36px);
+  position: relative;
+  z-index: 1;
+}
+
+body:has(.admin-main) .admin-stats {
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 16px;
+  margin: 30px 0 42px;
+}
+
+body:has(.admin-main) .stat-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 105px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  border-radius: 20px;
+  background: linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.025));
+  border: 1px solid rgba(230,199,131,.24);
+  box-shadow: 0 12px 35px rgba(0,0,0,.24);
+}
+
+body:has(.admin-main) .stat-card::after {
+  content: "";
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  right: -35px;
+  top: -35px;
+  border-radius: 50%;
+  background: rgba(214,173,96,.12);
+  filter: blur(3px);
+}
+
+body:has(.admin-main) .stat-card:nth-child(1)::before { content: "◈  TOTAL REQUESTS"; }
+body:has(.admin-main) .stat-card:nth-child(2)::before { content: "◷  PENDING"; }
+body:has(.admin-main) .stat-card:nth-child(3)::before { content: "↗  IN PROGRESS"; }
+body:has(.admin-main) .stat-card:nth-child(4)::before { content: "✓  COMPLETED"; }
+
+body:has(.admin-main) .stat-card::before {
+  color: #c9b58c;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+body:has(.admin-main) .stat-card strong {
+  font-size: clamp(32px,7vw,43px);
+  line-height: 1;
+  font-weight: 800;
+  position: relative;
+  z-index: 1;
+}
+
+body:has(.admin-main) .admin-main > h2 {
+  font-size: 21px;
+  letter-spacing: -.4px;
+  padding-left: 13px;
+  border-left: 3px solid #d6ad60;
+}
+
+body:has(.admin-main) .request-card,
+body:has(.admin-main) .project-card {
+  padding: 23px;
+  margin: 16px 0;
+  border-radius: 19px;
+  background: linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.018));
+  border: 1px solid rgba(230,199,131,.20);
+  box-shadow: 0 12px 35px rgba(0,0,0,.22);
+}
+
+body:has(.admin-main) .request-card h3,
+body:has(.admin-main) .project-card h3 {
+  font-size: 19px;
+  letter-spacing: -.3px;
+}
+
+body:has(.admin-main) .request-card p,
+body:has(.admin-main) .project-card p {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+body:has(.admin-main) .request-card strong {
+  color: #e6c783;
+}
+
+body:has(.admin-main) .request-meta {
+  color: #aaa49a;
+  font-size: 12px;
+}
+
+body:has(.admin-main) .create-project-panel {
+  padding: 25px;
+  border-radius: 21px;
+  background: linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.018));
+  border: 1px solid rgba(230,199,131,.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+body:has(.admin-main) .create-project-form {
+  gap: 19px;
+}
+
+body:has(.admin-main) .create-project-form label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .3px;
+}
+
+body:has(.admin-main) input,
+body:has(.admin-main) select,
+body:has(.admin-main) textarea {
+  min-height: 48px;
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(5,5,5,.55);
+  border: 1px solid rgba(230,199,131,.23);
+  color: #f7f3eb;
+  outline: none;
+}
+
+body:has(.admin-main) textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+body:has(.admin-main) input:focus,
+body:has(.admin-main) select:focus,
+body:has(.admin-main) textarea:focus {
+  border-color: #e6c783;
+  box-shadow: 0 0 0 3px rgba(214,173,96,.10);
+}
+
+body:has(.admin-main) .save-btn,
+body:has(.admin-main) .progress-save-btn {
+  min-height: 47px;
+  border-radius: 12px;
+  background: linear-gradient(110deg,#b58a43,#f0d28e,#c49a50);
+  box-shadow: 0 7px 22px rgba(214,173,96,.16);
+  font-weight: 900;
+  letter-spacing: .5px;
+}
+
+body:has(.admin-main) .logout-btn {
+  border-radius: 11px;
+  padding: 11px 17px;
+}
+
+body:has(.admin-main) .project-progress-track {
+  height: 12px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.10);
+}
+
+body:has(.admin-main) .project-progress-fill {
+  background: linear-gradient(90deg,#a87b34,#f0d28e);
+  box-shadow: 0 0 15px rgba(214,173,96,.35);
+}
+
+body:has(.admin-main) .stat-card,
+body:has(.admin-main) .request-card,
+body:has(.admin-main) .project-card {
+  transition: transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+
+body:has(.admin-main) .stat-card:hover,
+body:has(.admin-main) .request-card:hover,
+body:has(.admin-main) .project-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(240,210,142,.55);
+  box-shadow: 0 18px 42px rgba(0,0,0,.32);
+}
+
+@media(max-width:420px) {
+  body:has(.admin-main) .admin-main {
+    padding: 28px 14px 45px;
+  }
+
+  body:has(.admin-main) .admin-welcome {
+    padding: 25px 20px;
+  }
+
+  body:has(.admin-main) .stat-card {
+    padding: 17px 14px;
+    min-height: 95px;
+  }
+
+  body:has(.admin-main) .request-card,
+  body:has(.admin-main) .project-card,
+  body:has(.admin-main) .create-project-panel {
+    padding: 18px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  body:has(.admin-main) * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* END MITHAMO ADMIN V3 */
