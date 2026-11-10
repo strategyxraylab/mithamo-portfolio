@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+<defs>
+  <linearGradient id="bg" x2="1" y2="1">
+    <stop stop-color="#171717"/>
+    <stop offset="1" stop-color="#080808"/>
+  </linearGradient>
+  <linearGradient id="gold" x2="1">
+    <stop stop-color="#9d7928"/>
+    <stop offset=".5" stop-color="#f4d77a"/>
+    <stop offset="1" stop-color="#b58a35"/>
+  </linearGradient>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="9"/>
+  </filter>
+</defs>
+<rect width="1200" height="750" fill="url(#bg)"/>
+<rect x="35" y="35" width="1130" height="680" rx="25" fill="#101010" stroke="#9b7934" stroke-opacity=".55"/>
+<rect x="35" y="35" width="245" height="680" rx="25" fill="#171717"/>
+<text x="75" y="100" fill="#e3bd60" font-size="31" font-family="Arial" font-weight="bold">CREATIVE HUB</text>
+<text x="75" y="145" fill="#888" font-size="16" font-family="Arial">CLIENT WORKSPACE</text>
+<g fill="#ddd" font-family="Arial" font-size="20">
+<text x="75" y="225">Overview</text>
+<text x="75" y="285">My Projects</text>
+<text x="75" y="345">Requests</text>
+<text x="75" y="405">Messages</text>
+<text x="75" y="465">Account</text>
+</g>
+<rect x="55" y="190" width="205" height="55" rx="10" fill="#b58a35" opacity=".18"/>
+<text x="320" y="110" fill="#f2f2f2" font-size="37" font-family="Arial" font-weight="bold">Welcome back</text>
+<text x="320" y="150" fill="#999" font-size="19" font-family="Arial">Your creative projects, all in one place.</text>
+<rect x="320" y="195" width="245" height="135" rx="15" fill="#1d1d1d" stroke="#80652e"/>
+<rect x="585" y="195" width="245" height="135" rx="15" fill="#1d1d1d" stroke="#80652e"/>
+<rect x="850" y="195" width="275" height="135" rx="15" fill="#1d1d1d" stroke="#80652e"/>
+<g font-family="Arial">
+<text x="345" y="240" fill="#aaa" font-size="18">ACTIVE PROJECTS</text>
+<text x="345" y="295" fill="#e6c66d" font-size="43" font-weight="bold">03</text>
+<text x="610" y="240" fill="#aaa" font-size="18">COMPLETED</text>
+<text x="610" y="295" fill="#e6c66d" font-size="43" font-weight="bold">08</text>
+<text x="875" y="240" fill="#aaa" font-size="18">REQUESTS</text>
+<text x="875" y="295" fill="#e6c66d" font-size="43" font-weight="bold">02</text>
+</g>
+<text x="320" y="400" fill="#eee" font-family="Arial" font-size="27" font-weight="bold">Recent projects</text>
+<rect x="320" y="430" width="805" height="85" rx="12" fill="#1b1b1b"/>
+<rect x="320" y="535" width="805" height="85" rx="12" fill="#1b1b1b"/>
+<g font-family="Arial" font-size="20">
+<text x="350" y="480" fill="#eee">Website Design</text>
+<text x="900" y="480" fill="#e6c66d">IN PROGRESS</text>
+<text x="350" y="585" fill="#eee">Brand Identity</text>
+<text x="930" y="585" fill="#8bc99b">COMPLETED</text>
+</g>
+<rect x="35" y="35" width="1130" height="680" rx="25" fill="none" stroke="url(#gold)" stroke-opacity=".5"/>
+</svg>

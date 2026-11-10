@@ -808,6 +808,35 @@
     }
 
 
+
+    .project-category {
+      display: inline-block;
+      color: var(--accent);
+      font-size: .69rem;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      margin-bottom: 10px;
+    }
+
+    .project-live-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--accent);
+      font-size: .86rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .project-live-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    .projects-more {
+      margin-top: 25px;
+      text-align: center;
+    }
+
 /* PREMIUM SERVICE PACKAGES */
 .packages-grid {
   display: grid;
@@ -1215,45 +1244,61 @@
 </section>
 
 <section class="section" id="projects">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div class="eyebrow">SELECTED WORK</div>
-          <h2>My <span class="accent">Projects</span></h2>
-          <p>A gallery layout for presenting your best creative work. Replace the sample images with your real projects.</p>
+  <div class="container">
+    <div class="section-heading reveal">
+      <div class="eyebrow">SELECTED WORK</div>
+      <h2>My <span class="accent">Projects</span></h2>
+      <p>A selection of websites and digital experiences I have designed and developed.</p>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project-card reveal" data-image="https://strategyxraylab.github.io/aura_petals_beauty_parlour/images/aura-petals-interior.png">
+        <img src="https://strategyxraylab.github.io/aura_petals_beauty_parlour/images/aura-petals-interior.png" alt="AURA PETALS Beauty Parlour website preview">
+        <div class="project-info">
+          <span class="project-category">BEAUTY &amp; WELLNESS</span>
+          <h3>AURA PETALS BEAUTY PARLOUR</h3>
+          <p>A luxury beauty brand website showcasing salon services, business information and customer contact options.</p>
+          <a class="project-live-link" href="https://strategyxraylab.github.io/aura_petals_beauty_parlour/" target="_blank" rel="noopener">Visit Live Website ↗</a>
         </div>
+      </article>
 
-        <div class="projects-grid">
-          <article class="project-card reveal" data-image="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1400">
-            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=700" alt="Graphic design project">
-            <div class="project-info"><h3>Graphic Design</h3><p>Creative visual concept</p></div>
-          </article>
-          <article class="project-card reveal" data-image="https://images.unsplash.com/photo-1777652918753-d66882b15391?w=1400">
-            <img src="https://images.unsplash.com/photo-1777652918753-d66882b15391?w=700" alt="Brand identity project">
-            <div class="project-info"><h3>Brand Identity</h3><p>Branding inspiration</p></div>
-          </article>
-          <article class="project-card reveal" data-image="https://images.unsplash.com/photo-1558655146-d09347e92766?w=1400">
-            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=700" alt="Creative design project">
-            <div class="project-info"><h3>Creative Artwork</h3><p>Visual communication</p></div>
-          </article>
-          <article class="project-card reveal" data-image="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1400">
-            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=700" alt="Website design project">
-            <div class="project-info"><h3>Website Design</h3><p>Digital experience</p></div>
-          </article>
-          <article class="project-card reveal" data-image="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=1400">
-            <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=700" alt="Web layout project">
-            <div class="project-info"><h3>Web Layout</h3><p>Modern interface concept</p></div>
-          </article>
-          <article class="project-card reveal" data-image="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1400">
-            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=700" alt="Digital creative project">
-            <div class="project-info"><h3>Digital Creativity</h3><p>Design exploration</p></div>
-          </article>
+      <article class="project-card reveal" data-image="https://strategyxraylab.github.io/RASHLY-KICKS/assets/images/shoe-01.jpg">
+        <img src="https://strategyxraylab.github.io/RASHLY-KICKS/assets/images/shoe-01.jpg" alt="RASHLY KICKS sneaker store website preview">
+        <div class="project-info">
+          <span class="project-category">E-COMMERCE</span>
+          <h3>RASHLY KICKS</h3>
+          <p>A modern sneaker storefront featuring product collections, pricing and customer shopping enquiries.</p>
+          <a class="project-live-link" href="https://strategyxraylab.github.io/RASHLY-KICKS/" target="_blank" rel="noopener">Visit Live Website ↗</a>
         </div>
+      </article>
 
-        <p class="project-note">These are sample images for layout demonstration, not claims of completed client projects. Replace them with your own work.</p>
-      </div>
-    </section>
+      <article class="project-card reveal" data-image="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1100&amp;q=85">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="VELTRIX LIVINGSTON luxury interior website preview">
+        <div class="project-info">
+          <span class="project-category">LUXURY INTERIORS</span>
+          <h3>VELTRIX LIVINGSTON</h3>
+          <p>A premium multi-page website concept for luxury interiors, lifestyle and refined living.</p>
+          <a class="project-live-link" href="https://strategyxraylab.github.io/veltrix-livingston/" target="_blank" rel="noopener">Visit Live Website ↗</a>
+        </div>
+      </article>
 
-    <section class="section" id="experience">
+      <article class="project-card reveal" data-image="assets/project-previews/creative-hub.svg">
+        <img src="assets/project-previews/creative-hub.svg" alt="Creative Hub client workspace dashboard preview">
+        <div class="project-info">
+          <span class="project-category">CLIENT MANAGEMENT</span>
+          <h3>CREATIVE HUB</h3>
+          <p>A private client workspace for service requests, project tracking and progress updates.</p>
+          <a class="project-live-link" href="client-portal/portal.html">Explore Creative Hub ↗</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="project-note">Explore these live website projects to see their design and features.</p>
+    <p class="projects-more"><a class="project-live-link" href="projects.html">Explore All Projects ↗</a></p>
+  </div>
+</section>
+
+<section class="section" id="experience">
       <div class="container">
         <div class="section-heading reveal">
           <div class="eyebrow">MY PROFESSIONAL JOURNEY</div>
@@ -1487,7 +1532,9 @@
     const lightboxImage = document.getElementById("lightboxImage");
 
     document.querySelectorAll(".project-card").forEach(card => {
-      card.addEventListener("click", () => {
+      card.addEventListener("click", event => {
+        if (event.target.closest("a")) return;
+        if (!card.dataset.image) return;
         lightboxImage.src = card.dataset.image;
         lightbox.classList.add("open");
       });

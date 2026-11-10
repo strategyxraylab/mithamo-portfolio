@@ -3,49 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Explore graphic design, branding and website design concepts by Charles Mithamo.">
-<title>Projects | Charles Mithamo</title>
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Explore live website projects designed and developed by Charles Mithamo, including business websites, e-commerce and digital workspaces.">
+<meta name="author" content="Charles Mithamo">
+<title>Selected Projects | Charles Mithamo</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#090b09;--panel:#121612;--text:#f3f5ef;--muted:#a0a89e;--accent:#b5f36b;--line:#252c25}
+:root {
+  --bg:#090909;
+  --panel:#141414;
+  --panel2:#1d1a15;
+  --text:#f8f5ed;
+  --muted:#aaa49a;
+  --gold:#d4af37;
+  --line:rgba(212,175,55,.2);
+}
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
 a{color:inherit;text-decoration:none}
-.container{width:min(1120px,90%);margin:auto}
-.topbar{position:sticky;top:0;z-index:10;background:#090b09ed;border-bottom:1px solid var(--line)}
+.container{width:min(1160px,90%);margin:auto}
+.topbar{position:sticky;top:0;z-index:10;background:rgba(9,9,9,.94);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
 .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{font:700 23px 'Space Grotesk';letter-spacing:1px}.brand span,.accent{color:var(--accent)}
-.nav-links{display:flex;gap:24px;align-items:center}
-.nav-links a{font-size:13px;color:var(--muted)}
-.nav-links a:hover,.nav-links .active{color:var(--accent)}
+.brand{font:700 23px 'Space Grotesk';letter-spacing:1px}
+.brand span,.accent{color:var(--gold)}
+.nav-links{display:flex;gap:25px;align-items:center}
+.nav-links a{font-size:13px;color:var(--muted);transition:color .2s}
+.nav-links a:hover,.nav-links .active{color:var(--gold)}
 .menu-btn{display:none;background:none;color:var(--text);border:1px solid var(--line);padding:8px 12px;border-radius:8px;font-size:20px}
-.hero{text-align:center;padding:90px 0 55px}
-.eyebrow{color:var(--accent);font-size:12px;letter-spacing:3px;font-weight:700;margin-bottom:15px}
-h1,h2,h3{font-family:'Space Grotesk';line-height:1.2}
-h1{font-size:clamp(40px,7vw,66px);margin-bottom:16px}
-.hero p{max-width:650px;margin:auto;color:var(--muted)}
-.section{padding:45px 0 85px}
-.heading{text-align:center;margin-bottom:35px}
-.heading h2{font-size:clamp(28px,5vw,40px);margin-bottom:10px}
-.heading p{color:var(--muted)}
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.project-card{background:var(--panel);border:1px solid var(--line);border-radius:15px;overflow:hidden;transition:.25s}
-.project-card:hover{transform:translateY(-5px);border-color:var(--accent)}
-.project-card img{width:100%;height:220px;object-fit:cover;display:block}
-.project-info{padding:19px}
-.project-info h3{font-size:19px;margin-bottom:5px}
-.project-info p{font-size:13px;color:var(--muted)}
-.project-note{margin-top:25px;padding:15px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}
-.video-box{max-width:850px;margin:auto;background:var(--panel);padding:15px;border:1px solid var(--line);border-radius:15px}
-video{width:100%;display:block;border-radius:9px}
-.cta{text-align:center;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:35px 20px;margin-top:35px}
-.cta p{color:var(--muted);margin:10px 0 18px}
-.btn{display:inline-block;background:var(--accent);color:#10150b;padding:12px 19px;border-radius:8px;font-size:13px;font-weight:700}
-footer{border-top:1px solid var(--line);padding:25px 0;text-align:center;color:var(--muted);font-size:12px}
-@media(max-width:800px){.nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--panel);padding:22px 5%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.menu-btn{display:block}.gallery{grid-template-columns:1fr 1fr}}
-@media(max-width:500px){.gallery{grid-template-columns:1fr}.project-card img{height:230px}.hero{padding:65px 0 40px}}
+.hero{text-align:center;padding:105px 0 65px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:460px;height:260px;left:50%;top:5px;transform:translateX(-50%);background:rgba(212,175,55,.09);filter:blur(100px);pointer-events:none}
+.hero .container{position:relative}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:3px;font-weight:800;margin-bottom:17px}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.2}
+h1{font-size:clamp(42px,7vw,76px);margin-bottom:19px;letter-spacing:-2px}
+.hero p{max-width:680px;margin:auto;color:var(--muted);font-size:16px}
+.section{padding:35px 0 95px}
+.heading{text-align:center;margin-bottom:38px}
+.heading h2{font-size:clamp(29px,5vw,42px);margin-bottom:12px}
+.heading p{color:var(--muted);max-width:650px;margin:auto}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.project-card{background:linear-gradient(145deg,#191919,#101010);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.project-card:hover{transform:translateY(-7px);border-color:var(--gold);box-shadow:0 20px 55px rgba(0,0,0,.4)}
+.project-image{position:relative;overflow:hidden;background:#171717}
+.project-image img{width:100%;height:300px;object-fit:cover;display:block;transition:transform .6s}
+.project-card:hover .project-image img{transform:scale(1.045)}
+.project-number{position:absolute;top:17px;left:17px;padding:7px 11px;background:rgba(9,9,9,.8);border:1px solid rgba(212,175,55,.45);border-radius:30px;color:#f2d77f;font-size:11px;letter-spacing:1px}
+.project-info{padding:25px}
+.project-category{font-size:10px;letter-spacing:2px;color:var(--gold);font-weight:800;margin-bottom:10px}
+.project-info h3{font-size:clamp(20px,3vw,26px);margin-bottom:11px}
+.project-info p{font-size:14px;color:var(--muted);min-height:50px}
+.project-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+.project-meta span{font-size:11px;color:#d6c9a7;background:#211e17;border:1px solid rgba(212,175,55,.14);padding:6px 10px;border-radius:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--gold);color:#100e09;padding:12px 18px;border-radius:9px;font-size:13px;font-weight:800;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#f0d477}
+.cta{text-align:center;background:linear-gradient(145deg,#1c1912,#111);border:1px solid var(--line);border-radius:20px;padding:48px 22px;margin-top:55px}
+.cta h2{font-size:clamp(27px,5vw,39px)}
+.cta p{color:var(--muted);margin:13px 0 3px}
+footer{border-top:1px solid var(--line);padding:27px 0;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:800px){
+ .nav-links{display:none;position:absolute;top:76px;left:0;right:0;background:#111;padding:22px 5%;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line)}
+ .nav-links.open{display:flex}
+ .menu-btn{display:block}
+ .project-image img{height:250px}
+}
+@media(max-width:560px){
+ .gallery{grid-template-columns:1fr;gap:19px}
+ .hero{padding:75px 0 48px}
+ .section{padding-bottom:65px}
+ .project-image img{height:235px}
+ .project-info{padding:20px}
+ .project-info p{min-height:0}
+}
 </style>
 </head>
 <body>
@@ -60,80 +92,109 @@ footer{border-top:1px solid var(--line);padding:25px 0;text-align:center;color:v
 <a href="cv.html">My CV</a>
 <a href="contact.html">Contact</a>
 </nav>
-<button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+<button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">☰</button>
 </div>
 </header>
 
 <main>
 <section class="hero">
 <div class="container">
-<div class="eyebrow">MY CREATIVE WORK</div>
+<div class="eyebrow">THE WORK · THE EXPERIENCE · THE DETAILS</div>
 <h1>Selected <span class="accent">Projects.</span></h1>
-<p>A collection of graphic design, branding and website design concepts that demonstrate my creative interests and digital skills.</p>
+<p>A closer look at websites and digital experiences designed and developed by Charles Mithamo. Explore the live projects and experience each one for yourself.</p>
 </div>
 </section>
 
 <section class="section">
 <div class="container">
 <div class="heading">
-<div class="eyebrow">PORTFOLIO GALLERY</div>
-<h2>Creative <span class="accent">Exploration</span></h2>
-<p>Design concepts and visual inspiration.</p>
+<div class="eyebrow">FEATURED WORK</div>
+<h2>Built with <span class="accent">Purpose.</span></h2>
+<p>Four live projects covering business websites, e-commerce, luxury web design and client project management.</p>
 </div>
+
 <div class="gallery">
 <article class="project-card">
-<img src="https://images.unsplash.com/photo-1777652918753-d66882b15391?w=700" alt="Brand identity project">
-<div class="project-info"><h3>Brand Identity</h3><p>Branding inspiration</p></div>
-</article>
-<article class="project-card">
-<img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=700" alt="Creative design project">
-<div class="project-info"><h3>Creative Artwork</h3><p>Visual communication</p></div>
-</article>
-<article class="project-card">
-<img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=700" alt="Website design project">
-<div class="project-info"><h3>Website Design</h3><p>Digital experience</p></div>
-</article>
-<article class="project-card">
-<img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?w=700" alt="Web layout project">
-<div class="project-info"><h3>Web Layout</h3><p>Modern interface concept</p></div>
-</article>
-<article class="project-card">
-<img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=700" alt="Digital creative project">
-<div class="project-info"><h3>Digital Creativity</h3><p>Design exploration</p></div>
-</article>
+<div class="project-image">
+<img src="https://strategyxraylab.github.io/aura_petals_beauty_parlour/images/aura-petals-interior.png" alt="AURA PETALS BEAUTY PARLOUR website preview" loading="lazy">
+<span class="project-number">PROJECT 01</span>
 </div>
-<p class="project-note">These are sample images for layout demonstration, not claims of completed client projects. Replace them with your own work.</p>
+<div class="project-info">
+<div class="project-category">BEAUTY · BUSINESS WEBSITE</div>
+<h3>AURA PETALS BEAUTY PARLOUR</h3>
+<p>A digital home for a beauty business, presenting its salon services, visual identity, location and customer contact options.</p>
+<div class="project-meta"><span>Business website</span><span>Service showcase</span><span>Mobile-friendly</span></div>
+<a class="btn" href="https://strategyxraylab.github.io/aura_petals_beauty_parlour/" target="_blank" rel="noopener">View Live Project ↗</a>
 </div>
-</section>
+</article>
 
-<section class="section">
-<div class="container">
-<div class="heading">
-<div class="eyebrow">WEBSITE SHOWCASE</div>
-<h2>Digital <span class="accent">Experience</span></h2>
-<p>A video demonstration of my website work.</p>
+<article class="project-card">
+<div class="project-image">
+<img src="https://strategyxraylab.github.io/RASHLY-KICKS/assets/images/shoe-01.jpg" alt="RASHLY KICKS sneaker store preview" loading="lazy">
+<span class="project-number">PROJECT 02</span>
 </div>
-<div class="video-box">
-<video controls preload="metadata">
-<source src="website-showcase.mp4" type="video/mp4">
-Your browser does not support video playback.
-</video>
+<div class="project-info">
+<div class="project-category">E-COMMERCE · SNEAKER STORE</div>
+<h3>RASHLY KICKS</h3>
+<p>A modern online sneaker storefront designed to present products clearly and make it easy for customers to explore the collection and enquire.</p>
+<div class="project-meta"><span>Online storefront</span><span>Product catalogue</span><span>Shopping experience</span></div>
+<a class="btn" href="https://strategyxraylab.github.io/RASHLY-KICKS/" target="_blank" rel="noopener">View Live Project ↗</a>
 </div>
+</article>
+
+<article class="project-card">
+<div class="project-image">
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85" alt="VELTRIX LIVINGSTON luxury interior website preview" loading="lazy">
+<span class="project-number">PROJECT 03</span>
+</div>
+<div class="project-info">
+<div class="project-category">LUXURY · MULTI-PAGE WEBSITE</div>
+<h3>VELTRIX LIVINGSTON</h3>
+<p>A luxury interior design website with an editorial visual direction, refined layouts and a multi-page browsing experience.</p>
+<div class="project-meta"><span>Luxury web design</span><span>Multi-page site</span><span>Responsive layout</span></div>
+<a class="btn" href="https://strategyxraylab.github.io/veltrix-livingston/" target="_blank" rel="noopener">View Live Project ↗</a>
+</div>
+</article>
+
+<article class="project-card">
+<div class="project-image">
+<img src="assets/project-previews/creative-hub.svg" alt="Creative Hub client workspace interface illustration" loading="lazy">
+<span class="project-number">PROJECT 04</span>
+</div>
+<div class="project-info">
+<div class="project-category">CLIENT WORKSPACE · WEB APPLICATION</div>
+<h3>CREATIVE HUB</h3>
+<p>A private client workspace for submitting service requests, following project progress and managing creative project communication.</p>
+<div class="project-meta"><span>Client dashboard</span><span>Project tracking</span><span>Request workflow</span></div>
+<a class="btn" href="client-portal/portal.html" target="_blank" rel="noopener">Explore Creative Hub ↗</a>
+</div>
+</article>
+</div>
+
 <div class="cta">
-<h2>Let's create something <span class="accent">together.</span></h2>
-<p>Have a design or website project? Get in touch.</p>
-<a class="btn" href="https://wa.me/254716397341?text=Hello%20Charles%2C%20I%20would%20like%20to%20discuss%20a%20project.">Discuss a Project ↗</a>
+<h2>Have a project in <span class="accent">mind?</span></h2>
+<p>Let's discuss how thoughtful design and a strong digital presence can help your business.</p>
+<a class="btn" href="https://wa.me/254716397341?text=Hello%20Charles%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">Discuss a Project ↗</a>
 </div>
 </div>
 </section>
 </main>
+
 <footer><div class="container">© <span id="year"></span> Charles Mithamo. All rights reserved.</div></footer>
 <script>
-const menuBtn=document.getElementById('menuBtn');
-const navLinks=document.getElementById('navLinks');
-menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>navLinks.classList.remove('open')));
-document.getElementById('year').textContent=new Date().getFullYear();
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+menuBtn.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(open));
+});
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  });
+});
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
