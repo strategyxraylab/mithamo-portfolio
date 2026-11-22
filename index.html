@@ -271,7 +271,7 @@
       content: "";
       position: absolute;
       inset: -25px;
-      border-radius: 50%;
+      border-radius: 28px;
       background: radial-gradient(
         circle,
         rgba(212,175,55,.30),
@@ -365,14 +365,18 @@
     }
 
     .portrait {
+      display: block;
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 3 / 4;
+      max-height: 560px;
       object-fit: cover;
-      object-position: center;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
+      object-position: center center;
+      border-radius: 24px;
+      border: 1px solid rgba(212,175,55,.75);
       background: var(--surface2);
-      box-shadow: 0 8px 30px rgba(0,0,0,.35);
+      box-shadow:
+        0 20px 55px rgba(0,0,0,.45),
+        0 0 25px rgba(212,175,55,.12);
     }
 
     .portrait-tag {
@@ -941,6 +945,109 @@
   }
 }
 
+
+    /* KING PIN HERO — CHARCOAL AND TEAL */
+    .hero {
+      background:
+        linear-gradient(rgba(10, 18, 24, .78), rgba(10, 18, 24, .88)),
+        url("hero-background.png") center center / cover no-repeat;
+    }
+
+    .hero::before {
+      background-image:
+        linear-gradient(rgba(32,168,154,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(32,168,154,.055) 1px, transparent 1px);
+    }
+
+    .hero::after {
+      color: rgba(32,168,154,.12);
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .hero-content h1 .accent {
+      background: none;
+      color: #20A89A;
+      -webkit-text-fill-color: #20A89A;
+      animation: none;
+    }
+
+    .portrait-wrap {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .portrait-wrap::before {
+      background: radial-gradient(
+        circle,
+        rgba(32,168,154,.20),
+        rgba(32,168,154,.06) 55%,
+        transparent 72%
+      );
+      animation: none;
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 1.25 / 1;
+      max-height: none;
+      object-fit: cover;
+      object-position: center;
+      border: 1px solid rgba(32,168,154,.42);
+      border-radius: 24px;
+      animation: none;
+      box-shadow:
+        0 24px 65px rgba(0,0,0,.42),
+        0 0 28px rgba(32,168,154,.09);
+    }
+
+    .portrait-tag span {
+      color: #20A89A;
+    }
+
+    .hero-buttons .btn:not(.btn-outline):hover {
+      box-shadow: 0 0 25px rgba(32,168,154,.25);
+    }
+
+    .hero-buttons .btn-outline:hover {
+      border-color: #20A89A;
+      box-shadow: 0 0 18px rgba(32,168,154,.12);
+    }
+
+    @media (max-width: 850px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-copy {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .portrait-wrap {
+        max-width: 520px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .portrait {
+        border-radius: 18px;
+      }
+    }
+
 </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
@@ -977,24 +1084,28 @@
           <div class="hero-content reveal">
             <div class="eyebrow">WELCOME TO MY CREATIVE WORLD</div>
             <h1>I'm Charles<br><span class="accent">Mithamo.</span></h1>
+
             <p class="hero-copy">
               A creative designer passionate about visual storytelling,
               graphic design and building modern digital experiences.
               I turn ideas into clean, memorable designs.
             </p>
+
             <div class="hero-buttons">
-  <a class="btn" href="https://wa.me/254716397341?text=Hello%20Charles%2C%20I%20would%20like%20to%20hire%20you%20for%20a%20design%20or%20website%20project.">Hire Me on WhatsApp ↗</a>
-  <a class="btn btn-outline" href="#projects">Explore My Work</a>
-</div>
+              <a class="btn" href="https://wa.me/254716397341?text=Hello%20Charles%2C%20I%20would%20like%20to%20hire%20you%20for%20a%20design%20or%20website%20project.">Hire Me on WhatsApp ↗</a>
+              <a class="btn btn-outline" href="#projects">Explore My Work</a>
             </div>
+
             <p class="hero-note">CREATIVITY · DESIGN · DIGITAL EXPERIENCES</p>
           </div>
 
           <div class="portrait-wrap reveal">
-            <img class="portrait" src="photo.png"
-                 alt="Portrait of Charles Mithamo"
-                 onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800'">
-            <div class="portrait-tag">Creative mind <span>✦</span></div>
+            <img class="portrait"
+                 src="assets/images/king-pin.png"
+                 alt="Charles Mithamo working at a laptop in his creative studio"
+                 fetchpriority="high"
+                 decoding="async">
+            <div class="portrait-tag">Creative Studio <span>✦</span></div>
           </div>
         </div>
 
