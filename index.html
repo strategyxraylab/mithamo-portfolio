@@ -1470,7 +1470,217 @@
 }
 /* END PROJECT GRID FIX */
 
-  </style>
+/* ==========================================
+   SERVICES — 3D CREATIVE PORTRAIT SHOWCASE
+   ========================================== */
+
+#services .services-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(35px, 7vw, 90px);
+  margin: 55px auto 65px;
+  max-width: 1050px;
+}
+
+#services .services-showcase-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1300px;
+  isolation: isolate;
+  padding: 24px;
+}
+
+#services .services-photo-frame {
+  position: relative;
+  width: min(100%, 355px);
+  aspect-ratio: 2 / 3;
+  padding: 9px;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #f5dfa0, #8d6421 35%, #e4bd65 65%, #5c4015);
+  box-shadow:
+    0 35px 75px rgba(0,0,0,.55),
+    0 0 35px rgba(212,175,55,.18),
+    inset 0 1px 2px rgba(255,255,255,.65);
+  transform: rotateY(-10deg) rotateX(3deg);
+  transform-style: preserve-3d;
+  transition: transform .65s cubic-bezier(.2,.75,.25,1),
+              box-shadow .65s ease;
+  animation: servicesPortraitFloat 5s ease-in-out infinite;
+  z-index: 2;
+}
+
+#services .services-photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 13px -13px -13px 13px;
+  border: 1px solid rgba(212,175,55,.65);
+  border-radius: 25px;
+  transform: translateZ(-28px);
+  z-index: -1;
+}
+
+#services .services-photo-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.28),
+              inset 0 -35px 45px rgba(0,0,0,.25);
+}
+
+#services .services-photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+  transform: translateZ(15px);
+}
+
+#services .services-photo-glow {
+  position: absolute;
+  inset: 12%;
+  background: rgba(212,175,55,.3);
+  filter: blur(55px);
+  z-index: -2;
+}
+
+#services .services-photo-label {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 13px 16px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 12px;
+  background: rgba(10,10,10,.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #F5F1E8;
+  transform: translateZ(35px);
+}
+
+#services .services-photo-label span {
+  color: #E8CD78;
+  font-size: .62rem;
+  letter-spacing: 2px;
+}
+
+#services .services-photo-label strong {
+  font-size: .9rem;
+  letter-spacing: 1.5px;
+}
+
+#services .services-orbit {
+  position: absolute;
+  border: 1px solid rgba(212,175,55,.22);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+#services .services-orbit-one {
+  width: 95%;
+  aspect-ratio: 1;
+  transform: rotateX(68deg) rotateZ(-18deg);
+}
+
+#services .services-orbit-two {
+  width: 82%;
+  aspect-ratio: 1;
+  transform: rotateY(68deg) rotateZ(24deg);
+}
+
+#services .services-showcase-copy {
+  max-width: 530px;
+}
+
+#services .services-showcase-copy h3 {
+  margin: 15px 0 18px;
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.13;
+  letter-spacing: -1.5px;
+}
+
+#services .services-showcase-copy p {
+  margin-bottom: 26px;
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: 1rem;
+}
+
+#services .services-photo-frame:hover {
+  transform: rotateY(0deg) rotateX(0deg) translateY(-8px) scale(1.015);
+  box-shadow: 0 45px 85px rgba(0,0,0,.6),
+              0 0 45px rgba(212,175,55,.28);
+}
+
+@keyframes servicesPortraitFloat {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -9px; }
+}
+
+@media (max-width: 850px) {
+  #services .services-showcase {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-top: 40px;
+  }
+
+  #services .services-showcase-visual {
+    max-width: 460px;
+    width: 100%;
+    margin: auto;
+  }
+
+  #services .services-showcase-copy {
+    max-width: 620px;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  #services .services-showcase {
+    gap: 28px;
+    margin-bottom: 45px;
+  }
+
+  #services .services-showcase-visual {
+    padding: 18px;
+  }
+
+  #services .services-photo-frame {
+    width: min(82%, 310px);
+  }
+
+  #services .services-showcase-copy h3 {
+    font-size: 2rem;
+  }
+
+  #services .services-photo-frame:hover {
+    transform: rotateY(0) rotateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #services .services-photo-frame {
+    animation: none;
+    transition: none;
+  }
+}
+
+</style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="assets/css/mithamo-design-system.css">
 </head>
@@ -1658,6 +1868,38 @@
           <div class="eyebrow">HOW I CAN HELP</div>
           <h2>My <span class="accent">Services</span></h2>
           <p>Professional creative and digital services to bring your ideas to life. Contact me for a quotation.</p>
+        </div>
+
+        <!-- 3D CREATIVE SERVICES INTRO -->
+        <div class="services-showcase reveal">
+          <div class="services-showcase-visual">
+            <div class="services-photo-frame">
+              <div class="services-photo-glow"></div>
+              <img
+                src="assets/images/charles-mithamo-services.png"
+                alt="Charles Mithamo, creative and digital designer"
+                loading="lazy"
+                decoding="async"
+              >
+              <div class="services-photo-label">
+                <span>CREATIVE PROFESSIONAL</span>
+                <strong>CHARLES MITHAMO</strong>
+              </div>
+            </div>
+            <div class="services-orbit services-orbit-one"></div>
+            <div class="services-orbit services-orbit-two"></div>
+          </div>
+
+          <div class="services-showcase-copy">
+            <div class="eyebrow">DESIGN · DIGITAL · TECHNOLOGY</div>
+            <h3>Turning Ideas Into <span class="accent">Exceptional Experiences.</span></h3>
+            <p>
+              From visual identity and promotional graphics to modern websites
+              and practical ICT support, I help transform ideas into polished
+              digital experiences.
+            </p>
+            <a href="#contact" class="btn btn-primary">Let's Work Together ↗</a>
+          </div>
         </div>
 
         <div class="services-grid">
