@@ -1680,6 +1680,154 @@
   }
 }
 
+
+
+/* =====================================================
+   CHARLES MITHAMO — FULL BLEED 50/50 HERO
+   Desktop: text left, edge-to-edge portrait right
+   ===================================================== */
+
+@media (min-width: 851px) {
+
+  .hero {
+    padding: 0 !important;
+    overflow: hidden;
+  }
+
+  .hero .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 0 !important;
+    align-items: stretch !important;
+    min-height: clamp(620px, calc(100svh - 80px), 900px);
+  }
+
+  .hero-content {
+    padding: clamp(35px, 5vw, 85px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.8rem, 5.2vw, 5.5rem);
+  }
+
+  .hero-copy {
+    max-width: 550px;
+  }
+
+  .portrait-wrap {
+    position: relative;
+    width: 100% !important;
+    max-width: none !important;
+    height: 100%;
+    min-height: clamp(620px, calc(100svh - 80px), 900px);
+    margin: 0 !important;
+    overflow: hidden;
+    border-radius: 0 !important;
+  }
+
+  .portrait-wrap::before {
+    display: none !important;
+  }
+
+  .portrait {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: inherit;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center center;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+
+  .portrait-tag {
+    left: 25px;
+    bottom: 25px;
+  }
+
+  .hero .stats {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+    padding: 25px 0;
+  }
+}
+
+/* MOBILE AND TABLET FALLBACK */
+
+@media (max-width: 850px) {
+
+  .hero {
+    padding: 0 !important;
+  }
+
+  .hero .container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+
+  .hero-content {
+    padding: 48px 6vw 38px;
+  }
+
+  .portrait-wrap {
+    width: 100% !important;
+    max-width: none !important;
+    height: clamp(350px, 85vw, 560px);
+    min-height: 0;
+    margin: 0 !important;
+    overflow: hidden;
+    border-radius: 0 !important;
+  }
+
+  .portrait-wrap::before {
+    display: none !important;
+  }
+
+  .portrait {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    animation: none !important;
+  }
+
+  .portrait-tag {
+    left: 15px;
+    bottom: 15px;
+  }
+
+  .hero .stats {
+    width: 90%;
+    margin: 25px auto;
+  }
+}
+
+/* END FULL BLEED HERO */
+
 </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="assets/css/mithamo-design-system.css">
