@@ -1828,6 +1828,50 @@
 
 /* END FULL BLEED HERO */
 
+
+
+/* PREMIUM EDITORIAL PHOTO PRESENTATION */
+@media (min-width: 851px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+
+  .hero-grid > .portrait-wrap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box;
+    padding: clamp(25px, 4vw, 65px) !important;
+    min-height: clamp(620px, calc(100svh - 80px), 900px);
+    background: radial-gradient(
+      ellipse at center,
+      rgba(212,175,55,.08),
+      transparent 70%
+    );
+  }
+
+  .hero-grid > .portrait-wrap .portrait {
+    display: block;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-width: 760px !important;
+    max-height: min(74vh, 760px) !important;
+    aspect-ratio: auto !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border: 1px solid rgba(212,175,55,.35) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 25px 65px rgba(0,0,0,.42) !important;
+    animation: none !important;
+  }
+
+  .hero-grid > .portrait-wrap .portrait-tag {
+    left: clamp(40px, 5vw, 75px);
+    bottom: clamp(40px, 5vw, 75px);
+  }
+}
+
 </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="assets/css/mithamo-design-system.css">
